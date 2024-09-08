@@ -3,9 +3,10 @@
 
 #include <QObject>
 #include <QTimer>
-#include "lvglpp/lvglpptype.h"
+#include "lvglpp/core/lv_conf.h"
+#include "lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_window.h"
 #include "lvglpp/lvobject.h"
-#include "lvglpp/currentactscreen.h"
+#include "lvglpp/lvcuractivescreen.h"
 
 #define MONITOR_WIDTH   1280
 #define MONITOR_HEIGHT  720
@@ -21,7 +22,7 @@ private:
     QTimer *lvTimeTimer = nullptr;
 
     void halInit(void);
-
+    void drawSomething(void);
 
 public slots:
     void onLvTickHandler();

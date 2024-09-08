@@ -1,4 +1,5 @@
 #include "graphic.h"
+#include <QDebug>
 
 Graphic::Graphic()
 {
@@ -16,16 +17,35 @@ Graphic::Graphic()
 
     halInit();
 
-    CurrentActScreen::init();
-    CurrentActScreen::setScreenColor(lv_color_black(), LV_PART_MAIN);
-
-    LvObject *firstObject = new LvObject();
+    drawSomething();
 }
 
 void Graphic::halInit()
 {
     lv_init();
     lv_sdl_window_create(MONITOR_WIDTH, MONITOR_HEIGHT);
+}
+
+void Graphic::drawSomething()
+{
+    LvCurrentActScreen::init();
+    LvCurrentActScreen::setScreenColor(lv_color_black(), LV_PART_MAIN);
+
+    LvObject *firstObject = new LvObject();
+    firstObject->setSize(500, 500);
+    firstObject->center();
+
+    LvObject *secondObject = new LvObject(firstObject);
+    secondObject->setSize(100, 100);
+    secondObject->setOVerflowVisible(true);
+    secondObject->setX(200);
+
+    LvObject *thirdObject = new LvObject(firstObject);
+    thirdObject->setSize(50, 50);
+    thirdObject->setAlignTo(secondObject, LV_ALIGN_OUT_BOTTOM_MID, 20, 20);
+
+    LvObject *fouthObject = new LvObject(secondObject, 30, 30);
+    fouthObject->align(LV_ALIGN_BOTTOM_LEFT, 20, 30);
 }
 
 void Graphic::onLvTickHandler()

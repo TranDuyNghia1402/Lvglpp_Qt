@@ -373,7 +373,7 @@ SOURCES += \
         lvglpp/core/lvgl/src/widgets/textarea/lv_textarea.c \
         lvglpp/core/lvgl/src/widgets/tileview/lv_tileview.c \
         lvglpp/core/lvgl/src/widgets/win/lv_win.c \
-        lvglpp/currentactscreen.cpp \
+        lvglpp/lvcuractivescreen.cpp \
         lvglpp/lvobject.cpp \
         main.cpp
 
@@ -825,6 +825,6 @@ HEADERS += \
     lvglpp/core/lvgl/src/widgets/tileview/lv_tileview_private.h \
     lvglpp/core/lvgl/src/widgets/win/lv_win.h \
     lvglpp/core/lvgl/src/widgets/win/lv_win_private.h \
-    lvglpp/currentactscreen.h \
+    lvglpp/lvcuractivescreen.h \
     lvglpp/lvglpptype.h \
     lvglpp/lvobject.h

@@ -1,12 +1,12 @@
-#ifndef CURRENTACTSCREEN_H
-#define CURRENTACTSCREEN_H
+#ifndef LVCURACTIVESCREEN_H
+#define LVCURACTIVESCREEN_H
 
 #include "lvglpptype.h"
 
-class CurrentActScreen
+class LvCurrentActScreen
 {
 public:
-    CurrentActScreen() = default;
+    LvCurrentActScreen() = default;
 
     static void init();
     static LvObj *getActiveScreen();
@@ -16,4 +16,4 @@ private:
     static LvObj *mCurrentActiveScreen;
 };
 
-#endif // CURRENTACTSCREEN_H
+#endif // LVCURACTIVESCREEN_H
