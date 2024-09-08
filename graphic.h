@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QTimer>
 #include "lvglpp/lvglpptype.h"
+#include "lvglpp/lvobject.h"
+#include "lvglpp/currentactscreen.h"
 
 #define MONITOR_WIDTH   1280
 #define MONITOR_HEIGHT  720
