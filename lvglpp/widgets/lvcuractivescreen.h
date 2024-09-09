@@ -1,8 +1,8 @@
 #ifndef LVCURACTIVESCREEN_H
 #define LVCURACTIVESCREEN_H
 
-#include "lvglpptype.h"
-#include "lvglpp/lvbaseobject.h"
+#include "../lvglpptype.h"
+#include "lvbaseobject.h"
 
 class LvCurrentActScreen
 {

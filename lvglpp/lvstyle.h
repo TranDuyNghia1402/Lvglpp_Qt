@@ -167,6 +167,18 @@ public:
     void setMarginBottom(const int32_t &value);
 
     /**
+     * @brief setTextFont: set style text font
+     * @param font
+     */
+    void setTextFont(const LvFont font);
+
+    /**
+     * @brief setTextColor: set style text color
+     * @param color
+     */
+    void setTextColor(const LvColor color);
+
+    /**
      * @brief reset: reset a style (free all its data)
      */
     void reset();

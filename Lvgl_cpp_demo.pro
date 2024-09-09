@@ -373,8 +373,9 @@ SOURCES += \
         lvglpp/core/lvgl/src/widgets/textarea/lv_textarea.c \
         lvglpp/core/lvgl/src/widgets/tileview/lv_tileview.c \
         lvglpp/core/lvgl/src/widgets/win/lv_win.c \
-        lvglpp/lvbaseobject.cpp \
-        lvglpp/lvcuractivescreen.cpp \
+        lvglpp/lvstyle.cpp \
+        lvglpp/widgets/lvbaseobject.cpp \
+        lvglpp/widgets/lvcuractivescreen.cpp \
         main.cpp
 
 # Default rules for deployment.
@@ -825,6 +826,7 @@ HEADERS += \
     lvglpp/core/lvgl/src/widgets/tileview/lv_tileview_private.h \
     lvglpp/core/lvgl/src/widgets/win/lv_win.h \
     lvglpp/core/lvgl/src/widgets/win/lv_win_private.h \
-    lvglpp/lvbaseobject.h \
-    lvglpp/lvcuractivescreen.h \
+    lvglpp/lvstyle.h \
+    lvglpp/widgets/lvbaseobject.h \
+    lvglpp/widgets/lvcuractivescreen.h \
     lvglpp/lvglpptype.h

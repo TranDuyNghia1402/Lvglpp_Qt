@@ -5,8 +5,9 @@
 #include <QTimer>
 #include "lvglpp/core/lv_conf.h"
 #include "lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_window.h"
-#include "lvglpp/lvbaseobject.h"
-#include "lvglpp/lvcuractivescreen.h"
+#include "lvglpp/widgets/lvbaseobject.h"
+#include "lvglpp/widgets/lvcuractivescreen.h"
+#include "lvglpp/lvstyle.h"
 
 #define MONITOR_WIDTH   1280
 #define MONITOR_HEIGHT  720

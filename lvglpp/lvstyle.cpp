@@ -138,6 +138,16 @@ void LvObjectStyle::setMarginBottom(const int32_t &value)
     lv_style_set_margin_bottom(&mStyle, value);
 }
 
+void LvObjectStyle::setTextFont(const LvFont font)
+{
+    lv_style_set_text_font(&mStyle, &font);
+}
+
+void LvObjectStyle::setTextColor(const LvColor color)
+{
+    lv_style_set_text_color(&mStyle, color);
+}
+
 void LvObjectStyle::reset()
 {
     lv_style_reset(&mStyle);
