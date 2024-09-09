@@ -7,15 +7,16 @@ class LvBaseObject : public QObject
 {
     Q_OBJECT
 public:
-    LvBaseObject(LvBaseObject *parent);
-    LvBaseObject(LvBaseObject *parent, int32_t width, int32_t heigth);
-
-    /**
-     * @brief LvBaseObject: create object with no parent - display on current active screen
-     */
-    LvBaseObject();
+    LvBaseObject(LvBaseObject *parent = nullptr);
+    LvBaseObject(LvBaseObject *parent, int32_t width = 100, int32_t height = 100);
 
     ~LvBaseObject();
+
+    /**
+     * @brief create: create an object
+     * @warning must be called after initialize object
+     */
+    void create();
 
     /**
      * @brief destroy: delete object & its childrens
@@ -283,12 +284,12 @@ public:
      */
     void setLvObject(LvObj *obj);
 
-private:
+protected:
     LvBaseObject *mParent = nullptr;
     LvObj *mLvObj = nullptr;
 
-    int32_t mWidth = 0;
-    int32_t mHeight = 0;
+    int32_t mWidth = 100;
+    int32_t mHeight = 100;
 
 };
 

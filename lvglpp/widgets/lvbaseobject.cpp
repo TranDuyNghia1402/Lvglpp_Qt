@@ -1,28 +1,24 @@
 #include "lvbaseobject.h"
+#include <QDebug>
 
-LvBaseObject::LvBaseObject(LvBaseObject *parent) : mParent(parent)
-{
-    mLvObj = lv_obj_create(parent->getLvObject());
-}
+LvBaseObject::LvBaseObject(LvBaseObject *parent) : mParent(parent) { }
 
-LvBaseObject::LvBaseObject(LvBaseObject *parent, int32_t width, int32_t heigth) :
-    mParent(parent)
-{
-    mLvObj = lv_obj_create(parent->getLvObject());
-    this->setSize(width, heigth);
-}
-
-LvBaseObject::LvBaseObject()
-{
-    mLvObj = lv_obj_create(lv_screen_active());
-}
+LvBaseObject::LvBaseObject(LvBaseObject *parent, int32_t width, int32_t height) :
+    mParent(parent), mWidth(width), mHeight(height) { }
 
 LvBaseObject::~LvBaseObject()
 {
     if (mLvObj)
-    {
         this->destroy();
-    }
+}
+
+void LvBaseObject::create()
+{
+    if (mParent)
+        mLvObj = lv_obj_create(mParent->getLvObject());
+    else
+        mLvObj = lv_obj_create(lv_screen_active());
+    this->setSize(mWidth, mHeight);
 }
 
 void LvBaseObject::destroy()
@@ -283,6 +279,7 @@ LvObj *LvBaseObject::getLvObject() const
 
 void LvBaseObject::setLvObject(LvObj *obj)
 {
-    lv_obj_delete(mLvObj);
+    if (mLvObj)
+        lv_obj_delete(mLvObj);
     mLvObj = obj;
 }
