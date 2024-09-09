@@ -1,16 +1,23 @@
-#ifndef LVOBJECT_H
-#define LVOBJECT_H
+#ifndef LVBASEOBJECT_H
+#define LVBASEOBJECT_H
 
 #include <QObject>
 #include "lvglpp/lvglpptype.h"
 
-class LvObject : public QObject
+class LvBaseObject : public QObject
 {
     Q_OBJECT
 public:
-    LvObject(LvObject *parent, int32_t width = 50, int32_t heigth = 50);
-    LvObject();
-    ~LvObject();
+    LvBaseObject(LvBaseObject *parent, int32_t width = 50, int32_t heigth = 50);
+
+    /**
+     * @brief LvBaseObject: create object with no parent - display on current active screen
+     * @param width
+     * @param heigth
+     */
+    LvBaseObject(int32_t width = 50, int32_t heigth = 50);
+
+    ~LvBaseObject();
 
     /**
      * @brief destroy: delete object & its childrens
@@ -109,7 +116,7 @@ public:
      * @param x
      * @param y
      */
-    void setAlignTo(LvObject *ref, LvAlign align, int32_t x, int32_t y);
+    void setAlignTo(LvBaseObject *ref, LvAlign align, int32_t x, int32_t y);
 
     /**
      * @brief setOVerflowVisible: allow the childrens to be draw out of the parent
@@ -123,8 +130,15 @@ public:
      * @return mLvObject
      */
     LvObj *getLvObject();
+
+    /**
+     * @brief setLvObject: set basetype of lvObj
+     * @warning do not call this function, we dont need it
+     * @param obj
+     */
+    void setLvObject(LvObj *obj);
 private:
-    LvObject *mParent = nullptr;
+    LvBaseObject *mParent = nullptr;
     LvObj *mLvObj = nullptr;
 
     int32_t mWidth = 0;
@@ -135,4 +149,4 @@ public slots:
 
 };
 
-#endif // LVOBJECT_H
+#endif // LVBASEOBJECT_H

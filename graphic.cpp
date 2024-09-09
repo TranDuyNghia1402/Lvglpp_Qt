@@ -31,20 +31,20 @@ void Graphic::drawSomething()
     LvCurrentActScreen::init();
     LvCurrentActScreen::setScreenColor(lv_color_black(), LV_PART_MAIN);
 
-    LvObject *firstObject = new LvObject();
+    LvBaseObject *firstObject = new LvBaseObject(LvCurrentActScreen::getActiveScreen());
     firstObject->setSize(500, 500);
     firstObject->center();
 
-    LvObject *secondObject = new LvObject(firstObject);
+    LvBaseObject *secondObject = new LvBaseObject(firstObject);
     secondObject->setSize(100, 100);
     secondObject->setOVerflowVisible(true);
     secondObject->setX(200);
 
-    LvObject *thirdObject = new LvObject(firstObject);
+    LvBaseObject *thirdObject = new LvBaseObject(firstObject);
     thirdObject->setSize(50, 50);
     thirdObject->setAlignTo(secondObject, LV_ALIGN_OUT_BOTTOM_MID, 20, 20);
 
-    LvObject *fouthObject = new LvObject(secondObject, 30, 30);
+    LvBaseObject *fouthObject = new LvBaseObject(secondObject, 30, 30);
     fouthObject->align(LV_ALIGN_BOTTOM_LEFT, 20, 30);
 }
 

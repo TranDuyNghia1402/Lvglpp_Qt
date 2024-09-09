@@ -1,18 +1,22 @@
 #include "lvcuractivescreen.h"
 
-LvObj *LvCurrentActScreen::mCurrentActiveScreen;
+LvObj *LvCurrentActScreen::mCurrentScreen;
+LvBaseObject *LvCurrentActScreen::mCurrentActScreen;
 
 void LvCurrentActScreen::init()
 {
-    mCurrentActiveScreen = lv_screen_active();
+    mCurrentScreen = lv_screen_active();
+
+    mCurrentActScreen = new LvBaseObject();
+    mCurrentActScreen->setLvObject(mCurrentScreen);
 }
 
-LvObj *LvCurrentActScreen::getActiveScreen()
+LvBaseObject *LvCurrentActScreen::getActiveScreen()
 {
-    return mCurrentActiveScreen;
+    return mCurrentActScreen;
 }
 
 void LvCurrentActScreen::setScreenColor(LvColor color, LvSelector selector)
 {
-    lv_obj_set_style_bg_color(mCurrentActiveScreen, color, selector);
+    lv_obj_set_style_bg_color(mCurrentScreen, color, selector);
 }
