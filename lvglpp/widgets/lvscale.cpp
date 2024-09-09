@@ -48,3 +48,23 @@ void LvScale::setRange(int32_t min, int32_t max)
     mMax = max;
     mMin = min;
 }
+
+void LvScale::setRotation(uint32_t angle)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] scale was not created!";
+        return;
+    }
+    lv_scale_set_rotation(mLvObj, angle);
+}
+
+void LvScale::setMode(LvScaleMode mode)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] scale was not created!";
+        return;
+    }
+    lv_scale_set_mode(mLvObj, mode);
+}

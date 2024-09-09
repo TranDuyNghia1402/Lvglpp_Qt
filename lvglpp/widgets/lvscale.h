@@ -31,6 +31,18 @@ public:
      */
     void setRange(int32_t min, int32_t max);
 
+    /**
+     * @brief setRotation: set rotation of scale
+     * @param angle
+     */
+    void setRotation(uint32_t angle);
+
+    /**
+     * @brief setMode: set scale mode
+     * @param mode
+     */
+    void setMode(LvScaleMode mode);
+
 private:
     int32_t mMin;
     int32_t mMax;

@@ -7,6 +7,8 @@
 #include "lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_window.h"
 #include "lvglpp/widgets/lvbaseobject.h"
 #include "lvglpp/widgets/lvcuractivescreen.h"
+#include "lvglpp/widgets/lvlabel.h"
+#include "lvglpp/widgets/lvscale.h"
 #include "lvglpp/lvstyle.h"
 
 #define MONITOR_WIDTH   1280
