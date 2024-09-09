@@ -8,7 +8,7 @@ class LvBaseObject : public QObject
     Q_OBJECT
 public:
     LvBaseObject(LvBaseObject *parent = nullptr);
-    LvBaseObject(LvBaseObject *parent, int32_t width = 100, int32_t height = 100);
+    LvBaseObject(LvBaseObject *parent, int32_t width, int32_t height);
 
     ~LvBaseObject();
 
@@ -290,6 +290,8 @@ protected:
 
     int32_t mWidth = 100;
     int32_t mHeight = 100;
+
+    bool isCreated = false;
 
 };
 
