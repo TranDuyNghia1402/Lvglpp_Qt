@@ -48,9 +48,9 @@ void LvObjectStyle::setBgGradColor(const LvColor &color)
     lv_style_set_bg_grad_color(&mStyle, color);
 }
 
-void LvObjectStyle::setGradDir(const LvGradDir &graddir)
+void LvObjectStyle::setBgGradDir(const LvGradDir &graddir)
 {
-    lv_style_set_bg_grad_dir(&mStylem, graddir);
+    lv_style_set_bg_grad_dir(&mStyle, graddir);
 }
 
 void LvObjectStyle::setBgOpa(const LvOpa &opa)
