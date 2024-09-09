@@ -9,7 +9,8 @@ void LvLabel::create()
         mLvObj = lv_label_create(mParent->getLvObject());
     else
         mLvObj = lv_label_create(lv_screen_active());
-    setText(mContent);
+    this->setText(mContent);
+    this->setBgOpa(LV_OPA_COVER);
 }
 
 void LvLabel::setText(const QString &text)
