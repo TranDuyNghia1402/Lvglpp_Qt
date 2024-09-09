@@ -271,6 +271,12 @@ public:
     void setBorderPost(const bool &value, const LvSelector &selector = LV_PART_MAIN);
 
     /**
+     * @brief setRadius: set radius conner of object
+     * @param radius
+     */
+    void setRadius(const int32_t &radius, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
      * @brief getLvObject: return base object of lvgl
      * @warning do not call this function outside this class
      * @return mLvObject

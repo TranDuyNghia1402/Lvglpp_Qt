@@ -467,6 +467,16 @@ void LvBaseObject::setBorderPost(const bool &value, const LvSelector &selector)
     lv_obj_set_style_border_post(mLvObj, value, selector);
 }
 
+void LvBaseObject::setRadius(const int32_t &radius, const LvSelector &selector)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_radius(mLvObj, radius, selector);
+}
+
 LvObj *LvBaseObject::getLvObject() const
 {
     if (!isCreated)
