@@ -2,24 +2,28 @@
 #define LVGLPPTYPE_H
 
 #include <QObject>
+#include <QDebug>
 #include "core/lvgl/lvgl.h"
 
-#define LvColorBlack       lv_color_black
-#define LvColorWhite       lv_color_white
-#define LvColorHex         lv_color_hex
+#define LvColorBlack            lv_color_black
+#define LvColorWhite            lv_color_white
+#define LvColorHex              lv_color_hex
 
-typedef lv_obj_t            LvObj;
-typedef lv_font_t           LvFont;
+typedef lv_obj_t                LvObj;
+typedef lv_font_t               LvFont;
 
-typedef lv_align_t          LvAlign;
-typedef lv_color_t          LvColor;
-typedef lv_style_selector_t LvSelector;
-typedef lv_style_t          LvStyle;
-typedef lv_opa_t            LvOpa;
-typedef lv_border_side_t    LvBorderSide;
-typedef lv_grad_dir_t       LvGradDir;
-typedef lv_anim_enable_t    LvAnimEnable;
-typedef lv_obj_flag_t       LvPropFlag;
+typedef lv_align_t              LvAlign;
+typedef lv_text_align_t         LvTextAlign;
+typedef lv_color_t              LvColor;
+typedef lv_style_selector_t     LvSelector;
+typedef lv_style_t              LvStyle;
+typedef lv_opa_t                LvOpa;
+typedef lv_border_side_t        LvBorderSide;
+typedef lv_grad_dir_t           LvGradDir;
+typedef lv_anim_enable_t        LvAnimEnable;
+typedef lv_obj_flag_t           LvPropFlag;
+typedef lv_label_long_mode_t    LvLabelLongMode;
+typedef lv_scale_mode_t         LvScaleMode;
 
 enum class ScrollBarMode
 {
@@ -39,5 +43,6 @@ enum class ScrollDirection
     VER,
     ALL
 };
+
 
 #endif

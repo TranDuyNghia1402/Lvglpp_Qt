@@ -376,6 +376,8 @@ SOURCES += \
         lvglpp/lvstyle.cpp \
         lvglpp/widgets/lvbaseobject.cpp \
         lvglpp/widgets/lvcuractivescreen.cpp \
+        lvglpp/widgets/lvlabel.cpp \
+        lvglpp/widgets/lvscale.cpp \
         main.cpp
 
 # Default rules for deployment.
@@ -829,4 +831,6 @@ HEADERS += \
     lvglpp/lvstyle.h \
     lvglpp/widgets/lvbaseobject.h \
     lvglpp/widgets/lvcuractivescreen.h \
-    lvglpp/lvglpptype.h
+    lvglpp/lvglpptype.h \
+    lvglpp/widgets/lvlabel.h \
+    lvglpp/widgets/lvscale.h
