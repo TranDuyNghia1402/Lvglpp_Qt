@@ -179,6 +179,13 @@ public:
     void setTextColor(const LvColor color);
 
     /**
+     * @brief setRadius: set style radius
+     * @param radius
+     * @param selector
+     */
+    void setRadius(const int32_t &radius);
+
+    /**
      * @brief reset: reset a style (free all its data)
      */
     void reset();
