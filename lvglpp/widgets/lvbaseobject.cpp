@@ -2,7 +2,7 @@
 
 LvBaseObject::LvBaseObject(LvBaseObject *parent) : mParent(parent) { }
 
-LvBaseObject::LvBaseObject(LvBaseObject *parent, int32_t width, int32_t height) :
+LvBaseObject::LvBaseObject(LvBaseObject *parent, const int32_t &width, const int32_t &height) :
     mParent(parent), mWidth(width), mHeight(height) { }
 
 LvBaseObject::~LvBaseObject()
@@ -62,7 +62,7 @@ void LvBaseObject::show()
     lv_obj_clear_flag(mLvObj, LV_OBJ_FLAG_HIDDEN);
 }
 
-void LvBaseObject::addPropFlag(LvPropFlag props)
+void LvBaseObject::addPropFlag(const LvPropFlag &props)
 {
     if (!isCreated)
     {
@@ -72,7 +72,7 @@ void LvBaseObject::addPropFlag(LvPropFlag props)
     lv_obj_add_flag(mLvObj, props);
 }
 
-void LvBaseObject::clearPropFlag(LvPropFlag props)
+void LvBaseObject::clearPropFlag(const LvPropFlag &props)
 {
     if (!isCreated)
     {

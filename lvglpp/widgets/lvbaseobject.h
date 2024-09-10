@@ -8,7 +8,7 @@ class LvBaseObject : public QObject
     Q_OBJECT
 public:
     LvBaseObject(LvBaseObject *parent = nullptr);
-    LvBaseObject(LvBaseObject *parent, int32_t width, int32_t height);
+    LvBaseObject(LvBaseObject *parent, const int32_t &width, const int32_t &height);
 
     ~LvBaseObject();
 
@@ -43,13 +43,13 @@ public:
      * @brief addPropFlag: add properties flag to object
      * @param props
      */
-    void addPropFlag(LvPropFlag props);
+    void addPropFlag(const LvPropFlag &props);
 
     /**
      * @brief clearPropFlag: clear properties flag of object
      * @param props
      */
-    void clearPropFlag(LvPropFlag props);
+    void clearPropFlag(const LvPropFlag &props);
 
     /**
      * @brief setSize: set size of object

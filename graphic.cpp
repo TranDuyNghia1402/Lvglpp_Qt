@@ -28,32 +28,26 @@ void Graphic::halInit()
 
 void Graphic::drawSomething()
 {
-    LvCurrentActScreen::init();
-    LvCurrentActScreen::setScreenColor(LvColorBlack(), LV_PART_MAIN);
+//    LvCurrentActScreen::init();
+//    LvCurrentActScreen::setScreenColor(LvColorBlack(), LV_PART_MAIN);
 
-    LvBaseObject *base = new LvBaseObject(LvCurrentActScreen::getActiveScreen(), 500, 500);
-    base->create();
-    base->center();
-    base->setRadius(0);
+//    LV_IMAGE_DECLARE(bg_map);
+//    LvImage *backgroundImage = new LvImage();
+//    backgroundImage->create();
+//    backgroundImage->setSource(&bg_map);
+//    backgroundImage->center();
 
-    LvLabel *label = new LvLabel(base, "This is a text");
-    label->create();
-    label->setAlign(LV_ALIGN_TOP_MID);
+    LV_IMAGE_DECLARE(bg);
+    lv_obj_t * img1 = lv_image_create(lv_screen_active());
+    lv_image_set_src(img1, &bg);
+    lv_obj_set_scrollbar_mode(img1, LV_SCROLLBAR_MODE_OFF);
+    lv_obj_center(img1);
 
-    LvLabel *label2 = new LvLabel();
-    label2->create();
-    label2->setText("This is a text");
-    label2->setAlign(LV_ALIGN_TOP_MID);
+    lv_obj_t * img2 = lv_image_create(lv_screen_active());
+    lv_image_set_src(img2, LV_SYMBOL_OK "Accept");
+    lv_obj_align_to(img2, img1, LV_ALIGN_CENTER, 0, 20);
+    lv_obj_set_scrollbar_mode(img2, LV_SCROLLBAR_MODE_OFF);
 
-    LvScale *scale = new LvScale(base, -100, 100);
-    scale->create();
-    scale->setMode(LV_SCALE_MODE_VERTICAL_LEFT);
-    scale->setAlign(LV_ALIGN_BOTTOM_MID);
-
-    LvScale *scale2 = new LvScale();
-    scale2->create();
-    scale2->setRange(-200, 200);
-    scale2->setAlign(LV_ALIGN_TOP_MID);
 }
 
 void Graphic::onLvTickHandler()
