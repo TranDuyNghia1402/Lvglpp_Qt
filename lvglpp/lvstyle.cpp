@@ -153,6 +153,11 @@ void LvObjectStyle::setRadius(const int32_t &radius)
     lv_style_set_radius(&mStyle, radius);
 }
 
+void LvObjectStyle::setImgOpa(const LvOpa &opa)
+{
+    lv_style_set_image_opa(&mStyle, opa);
+}
+
 void LvObjectStyle::reset()
 {
     lv_style_reset(&mStyle);

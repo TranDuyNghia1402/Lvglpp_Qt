@@ -186,6 +186,12 @@ public:
     void setRadius(const int32_t &radius);
 
     /**
+     * @brief setImgOpa: set opa for image object
+     * @param opa
+     */
+    void setImgOpa(const LvOpa &opa);
+
+    /**
      * @brief reset: reset a style (free all its data)
      */
     void reset();
