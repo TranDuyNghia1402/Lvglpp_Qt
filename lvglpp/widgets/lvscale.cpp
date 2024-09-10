@@ -5,7 +5,14 @@ LvScale::LvScale(LvBaseObject *parent, int32_t min, int32_t max, bool isShowLabe
 
 void LvScale::create()
 {
+    if (mLvObj != nullptr)
+    {
+        isCreated = true;
+        return;
+    }
+
     isCreated = true;
+
     if (mParent)
         mLvObj = lv_scale_create(mParent->getLvObject());
     else

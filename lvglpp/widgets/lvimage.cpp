@@ -8,7 +8,14 @@ LvImage::LvImage(LvBaseObject *parent, const void *source) :
 
 void LvImage::create()
 {
+    if (mLvObj != nullptr)
+    {
+        isCreated = true;
+        return;
+    }
+
     isCreated = true;
+
     if (mParent)
         mLvObj = lv_image_create(mParent->getLvObject());
     else

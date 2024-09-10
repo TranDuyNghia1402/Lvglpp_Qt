@@ -12,7 +12,14 @@ LvButton::LvButton(LvBaseObject *parent, QString text) :
 
 void LvButton::create()
 {
+    if (mLvObj != nullptr)
+    {
+        isCreated = true;
+        return;
+    }
+
     isCreated = true;
+
     if (mParent)
         mLvObj = lv_button_create(mParent->getLvObject());
     else

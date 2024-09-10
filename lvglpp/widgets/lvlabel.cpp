@@ -4,7 +4,14 @@ LvLabel::LvLabel(LvBaseObject *parent, QString text) : LvBaseObject(parent), mCo
 
 void LvLabel::create()
 {
+    if (mLvObj != nullptr)
+    {
+        isCreated = true;
+        return;
+    }
+
     isCreated = true;
+
     if (mParent)
         mLvObj = lv_label_create(mParent->getLvObject());
     else
