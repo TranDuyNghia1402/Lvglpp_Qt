@@ -13,7 +13,14 @@ LvBaseObject::~LvBaseObject()
 
 void LvBaseObject::create()
 {
+    if (mLvObj != nullptr)
+    {
+        isCreated = true;
+        return;
+    }
+
     isCreated = true;
+
     if (mParent)
         mLvObj = lv_obj_create(mParent->getLvObject());
     else
