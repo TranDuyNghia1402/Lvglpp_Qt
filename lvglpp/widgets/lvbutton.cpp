@@ -1,7 +1,7 @@
 #include "lvbutton.h"
 
-LvButton::LvButton(LvBaseObject *parent, QString text) :
-    LvBaseObject(parent), mContent(text)
+LvButton::LvButton(LvBaseObject *parent, const uint32_t &width, const uint32_t &height, QString text) :
+    LvBaseObject(parent, width, height), mContent(text)
 {
     mButtonPressedEffectTimer = new QTimer();
     mButtonPressedEffectTimer->setSingleShot(true);
@@ -28,6 +28,7 @@ void LvButton::create()
     mContentLabel = lv_label_create(mLvObj);
     lv_label_set_text(mContentLabel, mContent.toStdString().c_str());
     lv_obj_center(mContentLabel);
+    this->setSize(mWidth, mHeight);
 }
 
 void LvButton::press()
