@@ -277,6 +277,41 @@ public:
     void setRadius(const int32_t &radius, const LvSelector &selector = LV_PART_MAIN);
 
     /**
+     * @brief setPadLeft: set padding left of object
+     * @param value
+     * @param selector: LV_PART_MAIN/SELECTED/ANY/...
+     */
+    void setPadLeft(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setPadLeft: set padding right of object
+     * @param value
+     * @param selector: LV_PART_MAIN/SELECTED/ANY/...
+     */
+    void setPadRight(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setPadLeft: set padding top of object
+     * @param value
+     * @param selector: LV_PART_MAIN/SELECTED/ANY/...
+     */
+    void setPadTop(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setPadLeft: set padding bottom of object
+     * @param value
+     * @param selector: LV_PART_MAIN/SELECTED/ANY/...
+     */
+    void setPadBottom(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setPadLeft: set padding of object
+     * @param value
+     * @param selector: LV_PART_MAIN/SELECTED/ANY/...
+     */
+    void setPadAll(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
      * @brief getLvObject: return base object of lvgl
      * @warning do not call this function outside this class
      * @return mLvObject

@@ -484,6 +484,56 @@ void LvBaseObject::setRadius(const int32_t &radius, const LvSelector &selector)
     lv_obj_set_style_radius(mLvObj, radius, selector);
 }
 
+void LvBaseObject::setPadLeft(const int32_t &value, const LvSelector &selector)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_pad_left(mLvObj, value, selector);
+}
+
+void LvBaseObject::setPadRight(const int32_t &value, const LvSelector &selector)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_pad_right(mLvObj, value, selector);
+}
+
+void LvBaseObject::setPadTop(const int32_t &value, const LvSelector &selector)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_pad_top(mLvObj, value, selector);
+}
+
+void LvBaseObject::setPadBottom(const int32_t &value, const LvSelector &selector)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_pad_bottom(mLvObj, value, selector);
+}
+
+void LvBaseObject::setPadAll(const int32_t &value, const LvSelector &selector)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_pad_all(mLvObj, value, selector);
+}
+
 LvObj *LvBaseObject::getLvObject() const
 {
     if (!isCreated)
