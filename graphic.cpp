@@ -36,24 +36,23 @@ void Graphic::drawSomething()
     base->center();
     base->setRadius(0);
 
+    LvBaseObject *needle = new LvBaseObject(base, 30, 10);
+    needle->create();
+    needle->setScrollBarMode(ScrollBarMode::OFF);
+    needle->setBgColor(lv_color_black());
+
     LvLabel *label = new LvLabel(base, "This is a text");
     label->create();
     label->setAlign(LV_ALIGN_TOP_MID);
 
-    LvLabel *label2 = new LvLabel();
-    label2->create();
-    label2->setText("This is a text");
-    label2->setAlign(LV_ALIGN_TOP_MID);
-
     LvScale *scale = new LvScale(base, -100, 100);
     scale->create();
+    scale->setSize(lv_pct(100), lv_pct(100));
+    scale->setTotalTickCount(101);
+    scale->setMajorTickEvery(10);
     scale->setMode(LV_SCALE_MODE_VERTICAL_LEFT);
-    scale->setAlign(LV_ALIGN_BOTTOM_MID);
+    scale->center();
 
-    LvScale *scale2 = new LvScale();
-    scale2->create();
-    scale2->setRange(-200, 200);
-    scale2->setAlign(LV_ALIGN_TOP_MID);
 }
 
 void Graphic::onLvTickHandler()

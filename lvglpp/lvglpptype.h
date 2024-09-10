@@ -24,6 +24,8 @@ typedef lv_anim_enable_t        LvAnimEnable;
 typedef lv_obj_flag_t           LvPropFlag;
 typedef lv_label_long_mode_t    LvLabelLongMode;
 typedef lv_scale_mode_t         LvScaleMode;
+typedef lv_scale_section_t      LvScaleSection;
+typedef lv_part_t               LvPart;
 
 enum class ScrollBarMode
 {
