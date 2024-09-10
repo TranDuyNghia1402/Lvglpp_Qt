@@ -13,6 +13,9 @@ void LvImage::create()
         mLvObj = lv_image_create(mParent->getLvObject());
     else
         mLvObj = lv_image_create(lv_screen_active());
+    setSource(mSource);
+
+    lv_style_init(&mImageStyle);
 }
 
 void LvImage::setSource(const void *src)
@@ -52,7 +55,7 @@ void LvImage::setRotation(const int32_t &angle)
         qDebug() << "[Warning] Image was not created!";
         return;
     }
-    lv_image_set_rotation(mLvObj, angle);
+    lv_image_set_rotation(mLvObj, angle * 10);
 }
 
 void LvImage::setPivot(const int32_t &x, const int32_t &y)
@@ -133,6 +136,17 @@ void LvImage::setBitmapMapSrc(const LvImageDsc *src)
         return;
     }
     lv_image_set_bitmap_map_src(mLvObj, src);
+}
+
+void LvImage::setOpa(const LvOpa &opa)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] Image was not created!";
+        return;
+    }
+    lv_style_set_image_opa(&mImageStyle, opa);
+    lv_obj_add_style(mLvObj, &mImageStyle, LV_PART_MAIN);
 }
 
 const void *LvImage::getSource() const
