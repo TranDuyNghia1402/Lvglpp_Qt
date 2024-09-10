@@ -375,10 +375,14 @@ SOURCES += \
         lvglpp/core/lvgl/src/widgets/win/lv_win.c \
         lvglpp/lvstyle.cpp \
         lvglpp/widgets/lvbaseobject.cpp \
+        lvglpp/widgets/lvbutton.cpp \
         lvglpp/widgets/lvcuractivescreen.cpp \
+        lvglpp/widgets/lvimage.cpp \
         lvglpp/widgets/lvlabel.cpp \
+        lvglpp/widgets/lvline.cpp \
         lvglpp/widgets/lvscale.cpp \
-        main.cpp
+        main.cpp \
+        resource/bg_RGB565.c
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -830,7 +834,10 @@ HEADERS += \
     lvglpp/core/lvgl/src/widgets/win/lv_win_private.h \
     lvglpp/lvstyle.h \
     lvglpp/widgets/lvbaseobject.h \
+    lvglpp/widgets/lvbutton.h \
     lvglpp/widgets/lvcuractivescreen.h \
     lvglpp/lvglpptype.h \
+    lvglpp/widgets/lvimage.h \
     lvglpp/widgets/lvlabel.h \
+    lvglpp/widgets/lvline.h \
     lvglpp/widgets/lvscale.h

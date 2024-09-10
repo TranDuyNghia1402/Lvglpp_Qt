@@ -28,30 +28,25 @@ void Graphic::halInit()
 
 void Graphic::drawSomething()
 {
-    LvCurrentActScreen::init();
-    LvCurrentActScreen::setScreenColor(LvColorBlack(), LV_PART_MAIN);
+//    LvCurrentActScreen::init();
+//    LvCurrentActScreen::setScreenColor(LvColorBlack(), LV_PART_MAIN);
 
-    LvBaseObject *base = new LvBaseObject(LvCurrentActScreen::getActiveScreen(), 500, 500);
-    base->create();
-    base->center();
-    base->setRadius(0);
+//    LV_IMAGE_DECLARE(bg_map);
+//    LvImage *backgroundImage = new LvImage();
+//    backgroundImage->create();
+//    backgroundImage->setSource(&bg_map);
+//    backgroundImage->center();
 
-    LvBaseObject *needle = new LvBaseObject(base, 30, 10);
-    needle->create();
-    needle->setScrollBarMode(ScrollBarMode::OFF);
-    needle->setBgColor(lv_color_black());
+    LV_IMAGE_DECLARE(bg);
+    lv_obj_t * img1 = lv_image_create(lv_screen_active());
+    lv_image_set_src(img1, &bg);
+    lv_obj_set_scrollbar_mode(img1, LV_SCROLLBAR_MODE_OFF);
+    lv_obj_center(img1);
 
-    LvLabel *label = new LvLabel(base, "This is a text");
-    label->create();
-    label->setAlign(LV_ALIGN_TOP_MID);
-
-    LvScale *scale = new LvScale(base, -100, 100);
-    scale->create();
-    scale->setSize(lv_pct(100), lv_pct(100));
-    scale->setTotalTickCount(101);
-    scale->setMajorTickEvery(10);
-    scale->setMode(LV_SCALE_MODE_VERTICAL_LEFT);
-    scale->center();
+    lv_obj_t * img2 = lv_image_create(lv_screen_active());
+    lv_image_set_src(img2, LV_SYMBOL_OK "Accept");
+    lv_obj_align_to(img2, img1, LV_ALIGN_CENTER, 0, 20);
+    lv_obj_set_scrollbar_mode(img2, LV_SCROLLBAR_MODE_OFF);
 
 }
 
