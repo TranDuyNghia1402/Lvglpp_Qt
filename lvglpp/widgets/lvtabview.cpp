@@ -20,7 +20,7 @@ void LvTabview::create()
 
 LvBaseObject *LvTabview::addTab(const char *tabName)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] tabview was not created!";
         return nullptr;
@@ -36,7 +36,7 @@ LvBaseObject *LvTabview::addTab(const char *tabName)
 
 void LvTabview::renameTab(const uint32_t &tabIdx, const char *newName)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] tabview was not created!";
         return;
@@ -46,7 +46,7 @@ void LvTabview::renameTab(const uint32_t &tabIdx, const char *newName)
 
 void LvTabview::setActive(const uint32_t &tabIdx, const LvAnimEnable &en)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] tabview was not created!";
         return;
@@ -56,7 +56,7 @@ void LvTabview::setActive(const uint32_t &tabIdx, const LvAnimEnable &en)
 
 void LvTabview::moveToNextTab(const LvAnimEnable &en)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] tabview was not created!";
         return;
@@ -64,12 +64,12 @@ void LvTabview::moveToNextTab(const LvAnimEnable &en)
     mTabIdx++;
     if (mTabIdx >= mTabNums)
         mTabIdx = 0;
-    this->setActive(mTabIdx);
+    this->setActive(mTabIdx, en);
 }
 
 void LvTabview::moveToPrvTab(const LvAnimEnable &en)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] tabview was not created!";
         return;
@@ -77,12 +77,12 @@ void LvTabview::moveToPrvTab(const LvAnimEnable &en)
     mTabIdx--;
     if (mTabIdx < 0)
         mTabIdx = mTabNums - 1;
-    this->setActive(mTabIdx);
+    this->setActive(mTabIdx, en);
 }
 
 void LvTabview::setTabBarPosition(const LvDir &direction)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] tabview was not created!";
         return;
@@ -92,7 +92,7 @@ void LvTabview::setTabBarPosition(const LvDir &direction)
 
 void LvTabview::setTabBarSize(const uint32_t &size)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] tabview was not created!";
         return;
@@ -102,7 +102,7 @@ void LvTabview::setTabBarSize(const uint32_t &size)
 
 uint32_t LvTabview::getTabCount() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] tabview was not created!";
         return 0;
@@ -112,7 +112,7 @@ uint32_t LvTabview::getTabCount() const
 
 uint32_t LvTabview::getTabActive() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] tabview was not created!";
         return 0;
@@ -122,6 +122,12 @@ uint32_t LvTabview::getTabActive() const
 
 LvBaseObject *LvTabview::getContent() const
 {
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] tabview was not created!";
+        return nullptr;
+    }
+
     LvBaseObject *content = new LvBaseObject();
     content->create();
     LvObj *baseTypeContent = lv_tabview_get_content(mLvObj);
@@ -132,6 +138,12 @@ LvBaseObject *LvTabview::getContent() const
 
 LvBaseObject *LvTabview::getTabBar() const
 {
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] tabview was not created!";
+        return nullptr;
+    }
+
     LvBaseObject *tabBar = new LvBaseObject();
     tabBar->create();
     LvObj *baseTypeTabBar = lv_tabview_get_tab_bar(mLvObj);

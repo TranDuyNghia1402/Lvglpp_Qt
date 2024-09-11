@@ -32,7 +32,8 @@ typedef lv_blend_mode_t         LvBlendMode;
 typedef lv_image_align_t        LvImageAlign;
 typedef lv_anim_enable_t        LvAnimEnable;
 typedef lv_dir_t                LvDir;
-
+typedef lv_scroll_snap_t        LvScrollSnap;
+typedef lv_btnmatrix_ctrl_t     LvBtnMatrixCtrl;
 
 enum class ScrollBarMode
 {

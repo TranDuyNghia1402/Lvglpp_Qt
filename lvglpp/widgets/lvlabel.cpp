@@ -21,7 +21,7 @@ void LvLabel::create()
 
 void LvLabel::setText(const QString &text)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return;
@@ -31,7 +31,7 @@ void LvLabel::setText(const QString &text)
 
 QString LvLabel::getText() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return "";
@@ -41,7 +41,7 @@ QString LvLabel::getText() const
 
 void LvLabel::setTextAlign(const LvTextAlign &align)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return;
@@ -51,7 +51,7 @@ void LvLabel::setTextAlign(const LvTextAlign &align)
 
 void LvLabel::setLongMode(const LvLabelLongMode &mode)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return;
@@ -61,7 +61,7 @@ void LvLabel::setLongMode(const LvLabelLongMode &mode)
 
 void LvLabel::setTextFont(const LvFont &font, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return;
@@ -71,7 +71,7 @@ void LvLabel::setTextFont(const LvFont &font, const LvSelector &selector)
 
 void LvLabel::setTextColor(const LvColor &color, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return;

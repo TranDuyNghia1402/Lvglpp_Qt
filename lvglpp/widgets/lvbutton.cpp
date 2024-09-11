@@ -33,19 +33,19 @@ void LvButton::create()
 
 void LvButton::press()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] button was not created!";
         return;
     }
     mButtonPressedEffectTimer->start();
-    this->setBgOpa(LV_OPA_0);
+    this->setBgOpa(LV_OPA_50);
     emit pressed();
 }
 
 void LvButton::onButtonPressedEffectTimerHandler()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] button was not created!";
         mButtonPressedEffectTimer->stop();
