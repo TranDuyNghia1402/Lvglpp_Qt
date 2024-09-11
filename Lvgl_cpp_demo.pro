@@ -376,6 +376,7 @@ SOURCES += \
         lvglpp/lvstyle.cpp \
         lvglpp/widgets/lvbaseobject.cpp \
         lvglpp/widgets/lvbutton.cpp \
+        lvglpp/widgets/lvbuttonmaxtrix.cpp \
         lvglpp/widgets/lvcuractivescreen.cpp \
         lvglpp/widgets/lvimage.cpp \
         lvglpp/widgets/lvlabel.cpp \
@@ -836,6 +837,7 @@ HEADERS += \
     lvglpp/lvstyle.h \
     lvglpp/widgets/lvbaseobject.h \
     lvglpp/widgets/lvbutton.h \
+    lvglpp/widgets/lvbuttonmaxtrix.h \
     lvglpp/widgets/lvcuractivescreen.h \
     lvglpp/lvglpptype.h \
     lvglpp/widgets/lvimage.h \

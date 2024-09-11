@@ -11,7 +11,9 @@
 #include "lvglpp/widgets/lvbutton.h"
 #include "lvglpp/widgets/lvscale.h"
 #include "lvglpp/widgets/lvimage.h"
+#include "lvglpp/widgets/lvbuttonmaxtrix.h"
 #include "lvglpp/widgets/lvtabview.h"
+#include "lvglpp/widgets/lvline.h"
 #include "lvglpp/lvstyle.h"
 
 #define MONITOR_WIDTH   1280

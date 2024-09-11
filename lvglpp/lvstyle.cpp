@@ -158,6 +158,37 @@ void LvObjectStyle::setImgOpa(const LvOpa &opa)
     lv_style_set_image_opa(&mStyle, opa);
 }
 
+void LvObjectStyle::setLineWidth(const int32_t &width)
+{
+    lv_style_set_line_width(&mStyle, width);
+}
+
+void LvObjectStyle::setLineColor(const LvColor &color)
+{
+    lv_style_set_line_color(&mStyle, color);
+}
+
+void LvObjectStyle::setLineRounded(const bool &isRounded)
+{
+    lv_style_set_line_rounded(&mStyle, isRounded);
+
+}
+
+void LvObjectStyle::setLineOpa(const LvOpa &opa)
+{
+    lv_style_set_line_opa(&mStyle, opa);
+}
+
+void LvObjectStyle::setLineDashGap(const uint32_t &gap)
+{
+    lv_style_set_line_dash_gap(&mStyle, gap);
+}
+
+void LvObjectStyle::setLineDashWidth(const uint32_t &width)
+{
+    lv_style_set_line_dash_width(&mStyle, width);
+}
+
 void LvObjectStyle::reset()
 {
     lv_style_reset(&mStyle);

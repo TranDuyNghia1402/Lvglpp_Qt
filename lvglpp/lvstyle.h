@@ -192,6 +192,41 @@ public:
     void setImgOpa(const LvOpa &opa);
 
     /**
+     * @brief setLineWidth: set style width of a line
+     * @param width
+     */
+    void setLineWidth(const int32_t &width);
+
+    /**
+     * @brief setLineColor: set style color of a line
+     * @param color
+     */
+    void setLineColor(const LvColor &color);
+
+    /**
+     * @brief setLineRounded: set style line rounded
+     * @param isRounded
+     */
+    void setLineRounded(const bool &isRounded);
+
+    /**
+     * @brief setLineOpa: set style line opa
+     * @param opa
+     */
+    void setLineOpa(const LvOpa &opa);
+
+    /**
+     * @brief setLineDashGap
+     */
+    void setLineDashGap(const uint32_t &width);
+
+    /**
+     * @brief setLineDashWidth: set style line dash width
+     * @param width
+     */
+    void setLineDashWidth(const uint32_t &width);
+
+    /**
      * @brief reset: reset a style (free all its data)
      */
     void reset();

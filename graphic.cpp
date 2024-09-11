@@ -48,27 +48,54 @@ void Graphic::drawSomething()
     base->setScrollBarMode(ScrollBarMode::OFF);
     base->setBgColor(LvColorHex(0xffccaa));
     base->setPadAll(5);
+    base->setBorderWidth(3);
+    base->setBorderColor(lv_color_black());
+
+    LvObjectStyle tabviewStyle;
+    tabviewStyle.setBorderWidth(2);
+    tabviewStyle.setBorderSide(LV_BORDER_SIDE_INTERNAL);
 
     tabview = new LvTabview(base);
     tabview->create();
     tabview->align(LV_ALIGN_TOP_LEFT, 0, 50);
     tabview->setSize(400, 350);
+    tabview->setBgColor(lv_palette_lighten(LV_PALETTE_RED, 2));
+    tabview->setTabBarPosition(LV_DIR_LEFT);
+    tabview->setTabBarSize(80);
+    tabview->setRadius(10);
+
+    LvButtonMaxtrix *tabButtons = (LvButtonMaxtrix*)tabview->getTabBar();
+    tabButtons->setBgColor(lv_palette_darken(LV_PALETTE_GREY, 3));
+    tabButtons->setTextColor(lv_color_hex(0xffccaa));
+    tabButtons->addStyle(tabviewStyle, LV_PART_ITEMS);
 
     LvBaseObject *tab1 = tabview->addTab("Tab 1");
     LvBaseObject *tab2 = tabview->addTab("Tab 2");
     LvBaseObject *tab3 = tabview->addTab("Tab 3");
 
+    LvObjectStyle labelStyle;
+    labelStyle.setBgOpa(LV_OPA_0);
+    labelStyle.setBorderWidth(2);
+    labelStyle.setRadius(5);
+    labelStyle.setBorderColor(lv_color_hex(0xffccaa));
+    labelStyle.setTextColor(lv_color_hex(0xffccaa));
+    labelStyle.setAlign(LV_ALIGN_CENTER);
+
     LvLabel *labelOfTab1 = new LvLabel(tab1, "This is the first tab!");
     labelOfTab1->create();
+    labelOfTab1->addStyle(labelStyle);
+
     LvLabel *labelOfTab2 = new LvLabel(tab2, "This is the second tab!");
     labelOfTab2->create();
+    labelOfTab2->addStyle(labelStyle);
+
     LvLabel *labelOfTab3 = new LvLabel(tab3, "This is the third tab!");
     labelOfTab3->create();
+    labelOfTab3->addStyle(labelStyle);
 
-    tab1Button = new LvButton(base, 75, 50, "Button 1");
-    tab1->setBgColor(lv_color_black(), LV_PART_SELECTED);
+    tab1Button = new LvButton(base, 75, 50, "Next");
     tab1Button->create();
-    tab1Button->setAlign(LV_ALIGN_TOP_RIGHT);
+    tab1Button->align(LV_ALIGN_TOP_RIGHT, 0, 50);
 
     tab2Button = new LvButton(base, 75, 50, "Button 2");
     tab2Button->create();
@@ -88,6 +115,24 @@ void Graphic::drawSomething()
     scale->setRange(-100, 100);
     scale->setTotalTickCount(21);
     scale->align(LV_ALIGN_BOTTOM_LEFT, 15, 0);
+
+    LvButtonMaxtrix *buttonMatrix = new LvButtonMaxtrix();
+    buttonMatrix->create();
+
+    static const char* buttonMap[] = {"1", "2", "3", "4", "5", "\n",
+        "6", "7", "8", "9", "0", "\n",
+        "Action1", "Action2", ""
+    };
+    buttonMatrix->setButtonMap(buttonMap);
+    buttonMatrix->setAlign(LV_ALIGN_RIGHT_MID);
+
+    LvObjectStyle lineStyle;
+    lineStyle.setLineWidth(5);
+    lineStyle.setLineRounded(true);
+    lineStyle.setLineColor(lv_color_white());
+    lineStyle.setAlign(LV_ALIGN_LEFT_MID);
+    lineStyle.setLineDashWidth(5);
+    lineStyle.setLineDashGap(5);
 }
 
 void Graphic::onLvTickHandler()
@@ -102,7 +147,7 @@ void Graphic::onLvTimerHandler()
 
 void Graphic::onButton1Pressed()
 {
-    tabview->setActive(0);
+    tabview->moveToNextTab();
 }
 
 void Graphic::onButton2Pressed()
@@ -117,19 +162,5 @@ void Graphic::onButton3Pressed()
 
 void Graphic::onAutoPressTimerHandler()
 {
-    static uint8_t btnPressedIdx = 0;
-    btnPressedIdx++;
-    if (btnPressedIdx == 3)  btnPressedIdx = 0;
-    switch (btnPressedIdx)
-    {
-        case 0:
-            tab1Button->press();
-            break;
-        case 1:
-            tab2Button->press();
-            break;
-        case 2:
-            tab3Button->press();
-            break;
-    }
+    tab1Button->press();
 }
