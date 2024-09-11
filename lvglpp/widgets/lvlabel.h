@@ -43,14 +43,14 @@ public:
      * @param font
      * @param selector
      */
-    void setFont(const LvFont &font, const LvSelector &selector = LV_PART_MAIN);
+    void setTextFont(const LvFont &font, const LvSelector &selector = LV_PART_MAIN) override;
 
     /**
      * @brief setTextColor: set text color of label
      * @param color
      * @param selector
      */
-    void setTextColor(const LvColor &color, const LvSelector &selector = LV_PART_MAIN);
+    void setTextColor(const LvColor &color, const LvSelector &selector = LV_PART_MAIN) override;
 
 private:
     QString mContent;

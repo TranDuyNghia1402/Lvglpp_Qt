@@ -203,6 +203,20 @@ public:
     void scrollToY(const int32_t &y, const LvAnimEnable &animEn);
 
     /**
+     * @brief setTextFont: set text font of object
+     * @param font
+     * @param selector
+     */
+    virtual void setTextFont(const LvFont &font, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setTextColor: set text color of object
+     * @param color
+     * @param selector
+     */
+    virtual void setTextColor(const LvColor &color, const LvSelector &selector = LV_PART_MAIN   );
+
+    /**
      * @brief setParent: set Parent to Object
      * @param parent
      */

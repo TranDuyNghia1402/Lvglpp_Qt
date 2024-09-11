@@ -370,6 +370,26 @@ void LvBaseObject::scrollToY(const int32_t &y, const LvAnimEnable &animEn)
     lv_obj_scroll_to_y(mLvObj, y, animEn);
 }
 
+void LvBaseObject::setTextFont(const LvFont &font, const LvSelector &selector)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_text_font(mLvObj, &font, selector);
+}
+
+void LvBaseObject::setTextColor(const LvColor &color, const LvSelector &selector)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_text_color(mLvObj, color, selector);
+}
+
 void LvBaseObject::setParent(LvBaseObject *parent)
 {
     if (!isCreated)
@@ -546,12 +566,8 @@ LvObj *LvBaseObject::getLvObject() const
 
 void LvBaseObject::setLvObject(LvObj *obj)
 {
-    if (!isCreated)
-    {
-        qDebug() << "[Warning] object was not created!";
-        return;
-    }
     if (mLvObj)
         lv_obj_delete(mLvObj);
     mLvObj = obj;
+    isCreated = true;
 }

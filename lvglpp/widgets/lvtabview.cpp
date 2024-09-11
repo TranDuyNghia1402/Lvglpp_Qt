@@ -27,7 +27,6 @@ LvBaseObject *LvTabview::addTab(const char *tabName)
     }
     LvObj *baseTypeTab = lv_tabview_add_tab(mLvObj, tabName);
     LvBaseObject *tab = new LvBaseObject();
-    tab->create();
     tab->setLvObject(baseTypeTab);
 
     return tab;
@@ -107,7 +106,7 @@ LvBaseObject *LvTabview::getTabBar() const
 {
     LvBaseObject *tabBar = new LvBaseObject();
     tabBar->create();
-    LvObj *baseTypeTabBar = lv_tabview_get_content(mLvObj);
+    LvObj *baseTypeTabBar = lv_tabview_get_tab_bar(mLvObj);
     tabBar->setLvObject(baseTypeTabBar);
 
     return tabBar;
