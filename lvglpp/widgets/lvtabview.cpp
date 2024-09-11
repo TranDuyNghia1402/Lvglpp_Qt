@@ -29,6 +29,8 @@ LvBaseObject *LvTabview::addTab(const char *tabName)
     LvBaseObject *tab = new LvBaseObject();
     tab->setLvObject(baseTypeTab);
 
+    mTabNums += 1;
+
     return tab;
 }
 
@@ -50,6 +52,32 @@ void LvTabview::setActive(const uint32_t &tabIdx, const LvAnimEnable &en)
         return;
     }
     lv_tabview_set_active(mLvObj, tabIdx, en);
+}
+
+void LvTabview::moveToNextTab(const LvAnimEnable &en)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] tabview was not created!";
+        return;
+    }
+    mTabIdx++;
+    if (mTabIdx >= mTabNums)
+        mTabIdx = 0;
+    this->setActive(mTabIdx);
+}
+
+void LvTabview::moveToPrvTab(const LvAnimEnable &en)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] tabview was not created!";
+        return;
+    }
+    mTabIdx--;
+    if (mTabIdx < 0)
+        mTabIdx = mTabNums - 1;
+    this->setActive(mTabIdx);
 }
 
 void LvTabview::setTabBarPosition(const LvDir &direction)

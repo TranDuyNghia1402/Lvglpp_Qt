@@ -35,6 +35,18 @@ public:
     void setActive(const uint32_t &tabIdx, const LvAnimEnable &en = LV_ANIM_OFF);
 
     /**
+     * @brief moveToNextTab: move to next tab of tabview
+     * @param en
+     */
+    void moveToNextTab(const LvAnimEnable &en = LV_ANIM_OFF);
+
+    /**
+     * @brief moveToPrvTab: move to previous tab of tabview
+     * @param en
+     */
+    void moveToPrvTab(const LvAnimEnable &en = LV_ANIM_OFF);
+
+    /**
      * @brief setTabBarPos: set the position of the tab bar
      * @param direction: LV_DIR_TOP/BOTTOM/LEFT/RIGHT
      */
@@ -72,6 +84,8 @@ public:
 
 
 private:
+    int32_t mTabNums = 0;
+    int32_t mTabIdx = 0;
 
 };
 
