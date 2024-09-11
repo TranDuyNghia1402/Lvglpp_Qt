@@ -468,6 +468,13 @@ LvBaseObject *LvBaseObject::getChilds(const int32_t &index)
         qDebug() << "[Warning] object was not created!";
         return nullptr;
     }
+
+    if (index >= lv_obj_get_child_count(mLvObj))
+    {
+        qDebug() << "[Error] child is not existed!";
+        return nullptr;
+    }
+
     LvObj *baseChild = lv_obj_get_child(mLvObj, index);
     LvBaseObject *children = new LvBaseObject();
     children->setLvObject(baseChild);
