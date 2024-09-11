@@ -89,6 +89,16 @@ void LvBaseObject::clearPropFlag(const LvPropFlag &props)
     lv_obj_clear_flag(mLvObj, props);
 }
 
+void LvBaseObject::updatePropFlag(const LvPropFlag &prop, const bool &v)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_update_flag(mLvObj, prop, v);
+}
+
 void LvBaseObject::setSize(const int32_t &width, const int32_t &height)
 {
     if (!isCreated)
@@ -330,6 +340,26 @@ void LvBaseObject::setScrollDir(const ScrollDirection &direction)
     }
 }
 
+void LvBaseObject::setScrollSnapX(const LvScrollSnap &align)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_scroll_snap_x(mLvObj, align);
+}
+
+void LvBaseObject::setScrollSnapY(const LvScrollSnap &align)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_scroll_snap_y(mLvObj, align);
+}
+
 void LvBaseObject::scrollBy(const int32_t &x, const int32_t &y, const LvAnimEnable &animEn)
 {
     if (!isCreated)
@@ -368,6 +398,26 @@ void LvBaseObject::scrollToY(const int32_t &y, const LvAnimEnable &animEn)
         return;
     }
     lv_obj_scroll_to_y(mLvObj, y, animEn);
+}
+
+void LvBaseObject::scrollToView(const LvAnimEnable &animEn)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_scroll_to_view(mLvObj, animEn);
+}
+
+void LvBaseObject::scrollToViewRecursive(const LvAnimEnable &animEn)
+{
+    if (!isCreated)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_scroll_to_view_recursive(mLvObj, animEn);
 }
 
 void LvBaseObject::setTextFont(const LvFont &font, const LvSelector &selector)

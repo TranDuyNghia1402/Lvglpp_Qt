@@ -52,6 +52,13 @@ public:
     void clearPropFlag(const LvPropFlag &props);
 
     /**
+     * @brief updatePropFlag: set add or remove one or more flags.
+     * @param prop
+     * @param v: true - add / false - remove
+     */
+    void updatePropFlag(const LvPropFlag &prop, const bool &v);
+
+    /**
      * @brief setSize: set size of object
      * @param width
      * @param height
@@ -173,6 +180,18 @@ public:
     void setScrollDir(const ScrollDirection &direction);
 
     /**
+     * @brief setScrollSnapX: set where to snap the children when scrolling ends horizontally
+     * @param align
+     */
+    void setScrollSnapX(const LvScrollSnap &align);
+
+    /**
+     * @brief setScrollSnapY: set where to snap the children when scrolling ends vertically
+     * @param align
+     */
+    void setScrollSnapY(const LvScrollSnap &align);
+
+    /**
      * @brief scrollBy: scoll by x & y value
      * @param x
      * @param y
@@ -201,6 +220,20 @@ public:
      * @param animEn
      */
     void scrollToY(const int32_t &y, const LvAnimEnable &animEn);
+
+    /**
+     * @brief scrollToView: scroll to an object until it becomes visible on its parent
+     * @param animEn
+     */
+    void scrollToView(const LvAnimEnable &animEn);
+
+    /**
+     * @brief scrollToViewRecursive: scroll to an object until it becomes visible on its parent.
+     * Do the same on the parent's parent, and so on.
+     * Therefore the object will be scrolled into view even it has nested scrollable parents
+     * @param animEn
+     */
+    void scrollToViewRecursive(const LvAnimEnable &animEn);
 
     /**
      * @brief setTextFont: set text font of object
