@@ -8,16 +8,26 @@ LvImage::LvImage(LvBaseObject *parent, const void *source) :
 
 void LvImage::create()
 {
+    if (mLvObj != nullptr)
+    {
+        isCreated = true;
+        return;
+    }
+
     isCreated = true;
+
     if (mParent)
         mLvObj = lv_image_create(mParent->getLvObject());
     else
         mLvObj = lv_image_create(lv_screen_active());
+    setSource(mSource);
+
+    lv_style_init(&mImageStyle);
 }
 
 void LvImage::setSource(const void *src)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -27,7 +37,7 @@ void LvImage::setSource(const void *src)
 
 void LvImage::setOffsetX(const int32_t &x)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -37,7 +47,7 @@ void LvImage::setOffsetX(const int32_t &x)
 
 void LvImage::setOffsetY(const int32_t &y)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -47,17 +57,17 @@ void LvImage::setOffsetY(const int32_t &y)
 
 void LvImage::setRotation(const int32_t &angle)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
     }
-    lv_image_set_rotation(mLvObj, angle);
+    lv_image_set_rotation(mLvObj, angle * 10);
 }
 
 void LvImage::setPivot(const int32_t &x, const int32_t &y)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -67,7 +77,7 @@ void LvImage::setPivot(const int32_t &x, const int32_t &y)
 
 void LvImage::setScale(const uint32_t &zoom)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -77,7 +87,7 @@ void LvImage::setScale(const uint32_t &zoom)
 
 void LvImage::setScaleX(const uint32_t &zoom)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -87,7 +97,7 @@ void LvImage::setScaleX(const uint32_t &zoom)
 
 void LvImage::setScaleY(const uint32_t &zoom)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -97,7 +107,7 @@ void LvImage::setScaleY(const uint32_t &zoom)
 
 void LvImage::setBlendMode(const LvBlendMode &blendMode)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -107,7 +117,7 @@ void LvImage::setBlendMode(const LvBlendMode &blendMode)
 
 void LvImage::setAntiAlias(const bool &antiAlias)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -117,7 +127,7 @@ void LvImage::setAntiAlias(const bool &antiAlias)
 
 void LvImage::setInnerAlign(const LvImageAlign &align)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -127,7 +137,7 @@ void LvImage::setInnerAlign(const LvImageAlign &align)
 
 void LvImage::setBitmapMapSrc(const LvImageDsc *src)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -135,9 +145,20 @@ void LvImage::setBitmapMapSrc(const LvImageDsc *src)
     lv_image_set_bitmap_map_src(mLvObj, src);
 }
 
+void LvImage::setOpa(const LvOpa &opa)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] Image was not created!";
+        return;
+    }
+    lv_style_set_image_opa(&mImageStyle, opa);
+    lv_obj_add_style(mLvObj, &mImageStyle, LV_PART_MAIN);
+}
+
 const void *LvImage::getSource() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return nullptr;
@@ -147,7 +168,7 @@ const void *LvImage::getSource() const
 
 int32_t LvImage::getOffsetX() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return 0;
@@ -157,7 +178,7 @@ int32_t LvImage::getOffsetX() const
 
 int32_t LvImage::getOffsetY() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return 0;
@@ -167,7 +188,7 @@ int32_t LvImage::getOffsetY() const
 
 int32_t LvImage::getRotation() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return 0;
@@ -177,7 +198,7 @@ int32_t LvImage::getRotation() const
 
 void LvImage::getPivot(LvPoint *pivot)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return;
@@ -187,7 +208,7 @@ void LvImage::getPivot(LvPoint *pivot)
 
 int32_t LvImage::getScale() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return -1;
@@ -197,7 +218,7 @@ int32_t LvImage::getScale() const
 
 int32_t LvImage::getScaleX() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return -1;
@@ -207,7 +228,7 @@ int32_t LvImage::getScaleX() const
 
 int32_t LvImage::getScaleY() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return -1;
@@ -217,7 +238,7 @@ int32_t LvImage::getScaleY() const
 
 LvBlendMode LvImage::getBlendMode() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return LvBlendMode::LV_BLEND_MODE_NORMAL;
@@ -227,7 +248,7 @@ LvBlendMode LvImage::getBlendMode() const
 
 bool LvImage::getAntiAlias() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return false;
@@ -237,7 +258,7 @@ bool LvImage::getAntiAlias() const
 
 LvImageAlign LvImage::getInnerAlign() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return LvImageAlign::LV_IMAGE_ALIGN_DEFAULT;
@@ -247,7 +268,7 @@ LvImageAlign LvImage::getInnerAlign() const
 
 const LvImageDsc *LvImage::getBitmapMapSrc() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] Image was not created!";
         return nullptr;

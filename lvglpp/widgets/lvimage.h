@@ -91,6 +91,12 @@ public:
     void setBitmapMapSrc(const LvImageDsc *src);
 
     /**
+     * @brief setImageOpa: set image opa
+     * @param opa
+     */
+    void setOpa(const LvOpa &opa);
+
+    /**
      * @brief getSource: get the source of the image
      * @return
      */
@@ -119,7 +125,7 @@ public:
      * convert it to px before return.
      * @param pivot
      */
-    void getPivot(LvPoint *pivot);
+    void getPivot(LvPoint *pivot); 
 
     /**
      * @brief getScale: get the zoom factor of the image.
@@ -165,6 +171,7 @@ public:
 
 private:
     const void *mSource;
+    LvStyle mImageStyle;
 };
 
 #endif // LVIMAGE_H

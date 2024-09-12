@@ -13,6 +13,7 @@ typedef lv_obj_t                LvObj;
 typedef lv_font_t               LvFont;
 typedef lv_image_dsc_t          LvImageDsc;
 typedef lv_point_t              LvPoint;
+typedef lv_point_precise_t      LvPointPrecise;
 
 typedef lv_align_t              LvAlign;
 typedef lv_text_align_t         LvTextAlign;
@@ -30,7 +31,10 @@ typedef lv_scale_section_t      LvScaleSection;
 typedef lv_part_t               LvPart;
 typedef lv_blend_mode_t         LvBlendMode;
 typedef lv_image_align_t        LvImageAlign;
-
+typedef lv_anim_enable_t        LvAnimEnable;
+typedef lv_dir_t                LvDir;
+typedef lv_scroll_snap_t        LvScrollSnap;
+typedef lv_btnmatrix_ctrl_t     LvBtnMatrixCtrl;
 
 enum class ScrollBarMode
 {

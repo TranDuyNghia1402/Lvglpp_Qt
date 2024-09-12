@@ -5,7 +5,14 @@ LvScale::LvScale(LvBaseObject *parent, int32_t min, int32_t max, bool isShowLabe
 
 void LvScale::create()
 {
+    if (mLvObj != nullptr)
+    {
+        isCreated = true;
+        return;
+    }
+
     isCreated = true;
+
     if (mParent)
         mLvObj = lv_scale_create(mParent->getLvObject());
     else
@@ -21,7 +28,7 @@ void LvScale::create()
 
 void LvScale::showLabel()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return;
@@ -31,7 +38,7 @@ void LvScale::showLabel()
 
 void LvScale::hideLabel()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return;
@@ -41,7 +48,7 @@ void LvScale::hideLabel()
 
 void LvScale::setRange(const int32_t &min, const int32_t &max)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return;
@@ -53,7 +60,7 @@ void LvScale::setRange(const int32_t &min, const int32_t &max)
 
 void LvScale::setRotation(const int32_t &angle)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return;
@@ -63,7 +70,7 @@ void LvScale::setRotation(const int32_t &angle)
 
 void LvScale::setMode(const LvScaleMode &mode)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return;
@@ -73,7 +80,7 @@ void LvScale::setMode(const LvScaleMode &mode)
 
 void LvScale::setTotalTickCount(const uint32_t &totalTickCnt)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return;
@@ -83,7 +90,7 @@ void LvScale::setTotalTickCount(const uint32_t &totalTickCnt)
 
 void LvScale::setMajorTickEvery(const uint32_t &majorTickEvery)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return;
@@ -93,7 +100,7 @@ void LvScale::setMajorTickEvery(const uint32_t &majorTickEvery)
 
 void LvScale::setAngleRange(const uint32_t &angleRange)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -102,7 +109,7 @@ void LvScale::setAngleRange(const uint32_t &angleRange)
 
 void LvScale::setLineNeedleValue(LvBaseObject *needleLine, const int32_t &needleLen, const int32_t &value)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -111,7 +118,7 @@ void LvScale::setLineNeedleValue(LvBaseObject *needleLine, const int32_t &needle
 
 void LvScale::setImageNeedleValue(LvBaseObject *needleImg, const int32_t &value)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -120,7 +127,7 @@ void LvScale::setImageNeedleValue(LvBaseObject *needleImg, const int32_t &value)
 
 void LvScale::setTextSrc(const char **txtSrc)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -129,7 +136,7 @@ void LvScale::setTextSrc(const char **txtSrc)
 
 void LvScale::setPosDraw(const bool &en)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -138,7 +145,7 @@ void LvScale::setPosDraw(const bool &en)
 
 void LvScale::setDrawTickOnTop(const bool &en)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -147,7 +154,7 @@ void LvScale::setDrawTickOnTop(const bool &en)
 
 void LvScale::addSection()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -156,7 +163,7 @@ void LvScale::addSection()
 
 void LvScale::setSectionRange(LvScaleSection *scaleSec, const int32_t &minorRange, const int32_t &majorRange)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -165,7 +172,7 @@ void LvScale::setSectionRange(LvScaleSection *scaleSec, const int32_t &minorRang
 
 void LvScale::setSectionStyle(LvScaleSection *scaleSec, const LvPart &part, LvStyle *sectionPartStyle)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -174,7 +181,7 @@ void LvScale::setSectionStyle(LvScaleSection *scaleSec, const LvPart &part, LvSt
 
 LvScaleMode LvScale::getMode() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -183,7 +190,7 @@ LvScaleMode LvScale::getMode() const
 
 int32_t LvScale::getTotalTickCount() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
     }
@@ -192,7 +199,7 @@ int32_t LvScale::getTotalTickCount() const
 
 int32_t LvScale::getMajorTickEvery() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return -1;
@@ -202,7 +209,7 @@ int32_t LvScale::getMajorTickEvery() const
 
 bool LvScale::getLabelShow() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return false;
@@ -212,7 +219,7 @@ bool LvScale::getLabelShow() const
 
 uint32_t LvScale::getAngleRange() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return 0;
@@ -222,7 +229,7 @@ uint32_t LvScale::getAngleRange() const
 
 int32_t LvScale::getRangeMin() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return 0;
@@ -232,7 +239,7 @@ int32_t LvScale::getRangeMin() const
 
 int32_t LvScale::getRangeMax() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] scale was not created!";
         return 0;

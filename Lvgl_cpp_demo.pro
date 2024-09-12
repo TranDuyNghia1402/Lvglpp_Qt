@@ -376,11 +376,13 @@ SOURCES += \
         lvglpp/lvstyle.cpp \
         lvglpp/widgets/lvbaseobject.cpp \
         lvglpp/widgets/lvbutton.cpp \
+        lvglpp/widgets/lvbuttonmaxtrix.cpp \
         lvglpp/widgets/lvcuractivescreen.cpp \
         lvglpp/widgets/lvimage.cpp \
         lvglpp/widgets/lvlabel.cpp \
         lvglpp/widgets/lvline.cpp \
         lvglpp/widgets/lvscale.cpp \
+        lvglpp/widgets/lvtabview.cpp \
         main.cpp \
         resource/bg_RGB565.c
 
@@ -835,9 +837,11 @@ HEADERS += \
     lvglpp/lvstyle.h \
     lvglpp/widgets/lvbaseobject.h \
     lvglpp/widgets/lvbutton.h \
+    lvglpp/widgets/lvbuttonmaxtrix.h \
     lvglpp/widgets/lvcuractivescreen.h \
     lvglpp/lvglpptype.h \
     lvglpp/widgets/lvimage.h \
     lvglpp/widgets/lvlabel.h \
     lvglpp/widgets/lvline.h \
-    lvglpp/widgets/lvscale.h
+    lvglpp/widgets/lvscale.h \
+    lvglpp/widgets/lvtabview.h

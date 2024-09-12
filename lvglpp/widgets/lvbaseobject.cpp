@@ -13,7 +13,14 @@ LvBaseObject::~LvBaseObject()
 
 void LvBaseObject::create()
 {
+    if (mLvObj != nullptr)
+    {
+        isCreated = true;
+        return;
+    }
+
     isCreated = true;
+
     if (mParent)
         mLvObj = lv_obj_create(mParent->getLvObject());
     else
@@ -23,7 +30,7 @@ void LvBaseObject::create()
 
 void LvBaseObject::destroy()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -34,7 +41,7 @@ void LvBaseObject::destroy()
 
 void LvBaseObject::clean()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -44,7 +51,7 @@ void LvBaseObject::clean()
 
 void LvBaseObject::hide()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -54,7 +61,7 @@ void LvBaseObject::hide()
 
 void LvBaseObject::show()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -64,7 +71,7 @@ void LvBaseObject::show()
 
 void LvBaseObject::addPropFlag(const LvPropFlag &props)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -74,7 +81,7 @@ void LvBaseObject::addPropFlag(const LvPropFlag &props)
 
 void LvBaseObject::clearPropFlag(const LvPropFlag &props)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -82,9 +89,19 @@ void LvBaseObject::clearPropFlag(const LvPropFlag &props)
     lv_obj_clear_flag(mLvObj, props);
 }
 
+void LvBaseObject::updatePropFlag(const LvPropFlag &prop, const bool &v)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_update_flag(mLvObj, prop, v);
+}
+
 void LvBaseObject::setSize(const int32_t &width, const int32_t &height)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -96,7 +113,7 @@ void LvBaseObject::setSize(const int32_t &width, const int32_t &height)
 
 void LvBaseObject::setWidth(const int32_t &width)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -107,7 +124,7 @@ void LvBaseObject::setWidth(const int32_t &width)
 
 void LvBaseObject::setHeight(const int32_t &height)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -118,7 +135,7 @@ void LvBaseObject::setHeight(const int32_t &height)
 
 int32_t LvBaseObject::getWidth() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return -1;
@@ -128,7 +145,7 @@ int32_t LvBaseObject::getWidth() const
 
 int32_t LvBaseObject::getHeight() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return -1;
@@ -138,7 +155,7 @@ int32_t LvBaseObject::getHeight() const
 
 void LvBaseObject::setX(const int32_t &x)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -148,7 +165,7 @@ void LvBaseObject::setX(const int32_t &x)
 
 void LvBaseObject::setY(const int32_t &y)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -158,7 +175,7 @@ void LvBaseObject::setY(const int32_t &y)
 
 void LvBaseObject::setPos(const int32_t &x, const int32_t &y)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -168,7 +185,7 @@ void LvBaseObject::setPos(const int32_t &x, const int32_t &y)
 
 void LvBaseObject::center()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -178,7 +195,7 @@ void LvBaseObject::center()
 
 void LvBaseObject::align(const LvAlign &align, const int32_t &x, const int32_t &y)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -188,7 +205,7 @@ void LvBaseObject::align(const LvAlign &align, const int32_t &x, const int32_t &
 
 void LvBaseObject::setAlign(const LvAlign &align)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -198,7 +215,7 @@ void LvBaseObject::setAlign(const LvAlign &align)
 
 void LvBaseObject::setAlignTo(LvBaseObject *ref, const LvAlign &align, const int32_t &x, const int32_t &y)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -208,7 +225,7 @@ void LvBaseObject::setAlignTo(LvBaseObject *ref, const LvAlign &align, const int
 
 void LvBaseObject::setOVerflowVisible(const bool &isVisible)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -221,7 +238,7 @@ void LvBaseObject::setOVerflowVisible(const bool &isVisible)
 
 void LvBaseObject::addStyle(LvObjectStyle &style, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -231,7 +248,7 @@ void LvBaseObject::addStyle(LvObjectStyle &style, const LvSelector &selector)
 
 void LvBaseObject::removeStyle(LvObjectStyle &style, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -241,7 +258,7 @@ void LvBaseObject::removeStyle(LvObjectStyle &style, const LvSelector &selector)
 
 void LvBaseObject::removeAllStyle()
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -251,7 +268,7 @@ void LvBaseObject::removeAllStyle()
 
 void LvBaseObject::setScrollBarMode(const ScrollBarMode &mode)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -275,7 +292,7 @@ void LvBaseObject::setScrollBarMode(const ScrollBarMode &mode)
 
 void LvBaseObject::setScrollable(const bool &isScrollable)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -292,7 +309,7 @@ void LvBaseObject::setScrollable(const bool &isScrollable)
 
 void LvBaseObject::setScrollDir(const ScrollDirection &direction)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -323,9 +340,29 @@ void LvBaseObject::setScrollDir(const ScrollDirection &direction)
     }
 }
 
+void LvBaseObject::setScrollSnapX(const LvScrollSnap &align)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_scroll_snap_x(mLvObj, align);
+}
+
+void LvBaseObject::setScrollSnapY(const LvScrollSnap &align)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_scroll_snap_y(mLvObj, align);
+}
+
 void LvBaseObject::scrollBy(const int32_t &x, const int32_t &y, const LvAnimEnable &animEn)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -335,7 +372,7 @@ void LvBaseObject::scrollBy(const int32_t &x, const int32_t &y, const LvAnimEnab
 
 void LvBaseObject::scrollTo(const int32_t &x, const int32_t &y, const LvAnimEnable &animEn)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -345,7 +382,7 @@ void LvBaseObject::scrollTo(const int32_t &x, const int32_t &y, const LvAnimEnab
 
 void LvBaseObject::scrollToX(const int32_t &x, const LvAnimEnable &animEn)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -355,7 +392,7 @@ void LvBaseObject::scrollToX(const int32_t &x, const LvAnimEnable &animEn)
 
 void LvBaseObject::scrollToY(const int32_t &y, const LvAnimEnable &animEn)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -363,9 +400,49 @@ void LvBaseObject::scrollToY(const int32_t &y, const LvAnimEnable &animEn)
     lv_obj_scroll_to_y(mLvObj, y, animEn);
 }
 
+void LvBaseObject::scrollToView(const LvAnimEnable &animEn)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_scroll_to_view(mLvObj, animEn);
+}
+
+void LvBaseObject::scrollToViewRecursive(const LvAnimEnable &animEn)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_scroll_to_view_recursive(mLvObj, animEn);
+}
+
+void LvBaseObject::setTextFont(const LvFont &font, const LvSelector &selector)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_text_font(mLvObj, &font, selector);
+}
+
+void LvBaseObject::setTextColor(const LvColor &color, const LvSelector &selector)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_text_color(mLvObj, color, selector);
+}
+
 void LvBaseObject::setParent(LvBaseObject *parent)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -376,7 +453,7 @@ void LvBaseObject::setParent(LvBaseObject *parent)
 
 LvBaseObject *LvBaseObject::getParent() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return nullptr;
@@ -386,11 +463,18 @@ LvBaseObject *LvBaseObject::getParent() const
 
 LvBaseObject *LvBaseObject::getChilds(const int32_t &index)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return nullptr;
     }
+
+    if (index >= lv_obj_get_child_count(mLvObj))
+    {
+        qDebug() << "[Error] child is not existed!";
+        return nullptr;
+    }
+
     LvObj *baseChild = lv_obj_get_child(mLvObj, index);
     LvBaseObject *children = new LvBaseObject();
     children->setLvObject(baseChild);
@@ -399,7 +483,7 @@ LvBaseObject *LvBaseObject::getChilds(const int32_t &index)
 
 void LvBaseObject::setBgColor(const LvColor &color, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -409,7 +493,7 @@ void LvBaseObject::setBgColor(const LvColor &color, const LvSelector &selector)
 
 void LvBaseObject::setBgOpa(const LvOpa &opa, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -419,7 +503,7 @@ void LvBaseObject::setBgOpa(const LvOpa &opa, const LvSelector &selector)
 
 void LvBaseObject::setBorderWidth(const int32_t &width, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -429,7 +513,7 @@ void LvBaseObject::setBorderWidth(const int32_t &width, const LvSelector &select
 
 void LvBaseObject::setBorderColor(const LvColor &color, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -439,7 +523,7 @@ void LvBaseObject::setBorderColor(const LvColor &color, const LvSelector &select
 
 void LvBaseObject::setBorderOpa(const LvOpa &opa, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -449,7 +533,7 @@ void LvBaseObject::setBorderOpa(const LvOpa &opa, const LvSelector &selector)
 
 void LvBaseObject::setBorderSide(const LvBorderSide &borderside, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -459,7 +543,7 @@ void LvBaseObject::setBorderSide(const LvBorderSide &borderside, const LvSelecto
 
 void LvBaseObject::setBorderPost(const bool &value, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -469,7 +553,7 @@ void LvBaseObject::setBorderPost(const bool &value, const LvSelector &selector)
 
 void LvBaseObject::setRadius(const int32_t &radius, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return;
@@ -477,9 +561,59 @@ void LvBaseObject::setRadius(const int32_t &radius, const LvSelector &selector)
     lv_obj_set_style_radius(mLvObj, radius, selector);
 }
 
+void LvBaseObject::setPadLeft(const int32_t &value, const LvSelector &selector)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_pad_left(mLvObj, value, selector);
+}
+
+void LvBaseObject::setPadRight(const int32_t &value, const LvSelector &selector)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_pad_right(mLvObj, value, selector);
+}
+
+void LvBaseObject::setPadTop(const int32_t &value, const LvSelector &selector)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_pad_top(mLvObj, value, selector);
+}
+
+void LvBaseObject::setPadBottom(const int32_t &value, const LvSelector &selector)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_pad_bottom(mLvObj, value, selector);
+}
+
+void LvBaseObject::setPadAll(const int32_t &value, const LvSelector &selector)
+{
+    if (!isCreated || !mLvObj)
+    {
+        qDebug() << "[Warning] object was not created!";
+        return;
+    }
+    lv_obj_set_style_pad_all(mLvObj, value, selector);
+}
+
 LvObj *LvBaseObject::getLvObject() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] object was not created!";
         return nullptr;
@@ -489,12 +623,8 @@ LvObj *LvBaseObject::getLvObject() const
 
 void LvBaseObject::setLvObject(LvObj *obj)
 {
-    if (!isCreated)
-    {
-        qDebug() << "[Warning] object was not created!";
-        return;
-    }
     if (mLvObj)
         lv_obj_delete(mLvObj);
     mLvObj = obj;
+    isCreated = true;
 }

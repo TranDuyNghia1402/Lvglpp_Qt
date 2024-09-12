@@ -52,6 +52,13 @@ public:
     void clearPropFlag(const LvPropFlag &props);
 
     /**
+     * @brief updatePropFlag: set add or remove one or more flags.
+     * @param prop
+     * @param v: true - add / false - remove
+     */
+    void updatePropFlag(const LvPropFlag &prop, const bool &v);
+
+    /**
      * @brief setSize: set size of object
      * @param width
      * @param height
@@ -173,6 +180,18 @@ public:
     void setScrollDir(const ScrollDirection &direction);
 
     /**
+     * @brief setScrollSnapX: set where to snap the children when scrolling ends horizontally
+     * @param align
+     */
+    void setScrollSnapX(const LvScrollSnap &align);
+
+    /**
+     * @brief setScrollSnapY: set where to snap the children when scrolling ends vertically
+     * @param align
+     */
+    void setScrollSnapY(const LvScrollSnap &align);
+
+    /**
      * @brief scrollBy: scoll by x & y value
      * @param x
      * @param y
@@ -201,6 +220,34 @@ public:
      * @param animEn
      */
     void scrollToY(const int32_t &y, const LvAnimEnable &animEn);
+
+    /**
+     * @brief scrollToView: scroll to an object until it becomes visible on its parent
+     * @param animEn
+     */
+    void scrollToView(const LvAnimEnable &animEn);
+
+    /**
+     * @brief scrollToViewRecursive: scroll to an object until it becomes visible on its parent.
+     * Do the same on the parent's parent, and so on.
+     * Therefore the object will be scrolled into view even it has nested scrollable parents
+     * @param animEn
+     */
+    void scrollToViewRecursive(const LvAnimEnable &animEn);
+
+    /**
+     * @brief setTextFont: set text font of object
+     * @param font
+     * @param selector
+     */
+    virtual void setTextFont(const LvFont &font, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setTextColor: set text color of object
+     * @param color
+     * @param selector
+     */
+    virtual void setTextColor(const LvColor &color, const LvSelector &selector = LV_PART_MAIN   );
 
     /**
      * @brief setParent: set Parent to Object
@@ -275,6 +322,41 @@ public:
      * @param radius
      */
     void setRadius(const int32_t &radius, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setPadLeft: set padding left of object
+     * @param value
+     * @param selector: LV_PART_MAIN/SELECTED/ANY/...
+     */
+    void setPadLeft(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setPadLeft: set padding right of object
+     * @param value
+     * @param selector: LV_PART_MAIN/SELECTED/ANY/...
+     */
+    void setPadRight(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setPadLeft: set padding top of object
+     * @param value
+     * @param selector: LV_PART_MAIN/SELECTED/ANY/...
+     */
+    void setPadTop(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setPadLeft: set padding bottom of object
+     * @param value
+     * @param selector: LV_PART_MAIN/SELECTED/ANY/...
+     */
+    void setPadBottom(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
+
+    /**
+     * @brief setPadLeft: set padding of object
+     * @param value
+     * @param selector: LV_PART_MAIN/SELECTED/ANY/...
+     */
+    void setPadAll(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
 
     /**
      * @brief getLvObject: return base object of lvgl

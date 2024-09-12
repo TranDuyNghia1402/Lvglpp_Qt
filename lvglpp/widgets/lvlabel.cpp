@@ -4,18 +4,24 @@ LvLabel::LvLabel(LvBaseObject *parent, QString text) : LvBaseObject(parent), mCo
 
 void LvLabel::create()
 {
+    if (mLvObj != nullptr)
+    {
+        isCreated = true;
+        return;
+    }
+
     isCreated = true;
+
     if (mParent)
         mLvObj = lv_label_create(mParent->getLvObject());
     else
         mLvObj = lv_label_create(lv_screen_active());
     this->setText(mContent);
-    this->setBgOpa(LV_OPA_COVER);
 }
 
 void LvLabel::setText(const QString &text)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return;
@@ -25,7 +31,7 @@ void LvLabel::setText(const QString &text)
 
 QString LvLabel::getText() const
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return "";
@@ -35,7 +41,7 @@ QString LvLabel::getText() const
 
 void LvLabel::setTextAlign(const LvTextAlign &align)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return;
@@ -45,7 +51,7 @@ void LvLabel::setTextAlign(const LvTextAlign &align)
 
 void LvLabel::setLongMode(const LvLabelLongMode &mode)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return;
@@ -53,9 +59,9 @@ void LvLabel::setLongMode(const LvLabelLongMode &mode)
     lv_label_set_long_mode(mLvObj, mode);
 }
 
-void LvLabel::setFont(const LvFont &font, const LvSelector &selector)
+void LvLabel::setTextFont(const LvFont &font, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return;
@@ -65,7 +71,7 @@ void LvLabel::setFont(const LvFont &font, const LvSelector &selector)
 
 void LvLabel::setTextColor(const LvColor &color, const LvSelector &selector)
 {
-    if (!isCreated)
+    if (!isCreated || !mLvObj)
     {
         qDebug() << "[Warning] label was not created!";
         return;

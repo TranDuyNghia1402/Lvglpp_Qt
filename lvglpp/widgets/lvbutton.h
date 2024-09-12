@@ -8,7 +8,7 @@ class LvButton : public LvBaseObject
 {
     Q_OBJECT
 public:
-    LvButton(LvBaseObject *parent = nullptr, QString text = "Button");
+    LvButton(LvBaseObject *parent = nullptr, const uint32_t &width = 100, const uint32_t &height = 100, QString text = "Button");
 
     /**
      * @brief create: create button

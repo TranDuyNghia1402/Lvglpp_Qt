@@ -8,7 +8,6 @@ void LvCurrentActScreen::init()
     mCurrentScreen = lv_screen_active();
 
     mCurrentActScreen = new LvBaseObject();
-    mCurrentActScreen->create();
     mCurrentActScreen->setLvObject(mCurrentScreen);
 }
 

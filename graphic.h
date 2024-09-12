@@ -11,6 +11,9 @@
 #include "lvglpp/widgets/lvbutton.h"
 #include "lvglpp/widgets/lvscale.h"
 #include "lvglpp/widgets/lvimage.h"
+#include "lvglpp/widgets/lvbuttonmaxtrix.h"
+#include "lvglpp/widgets/lvtabview.h"
+#include "lvglpp/widgets/lvline.h"
 #include "lvglpp/lvstyle.h"
 
 #define MONITOR_WIDTH   1280
@@ -29,10 +32,27 @@ private:
     void halInit(void);
     void drawSomething(void);
 
+    LvImage *backGround = nullptr;
+    LvBaseObject *base = nullptr;
+    LvTabview *tabview = nullptr;
+
+    LvButton *tab1Button = nullptr;
+    LvButton *tab2Button = nullptr;
+    LvButton *tab3Button = nullptr;
+
+    LvScale *scale = nullptr;
+
+    QTimer *autoPressTimer = nullptr;
+
 public slots:
     void onLvTickHandler();
     void onLvTimerHandler();
 
+    void onButton1Pressed();
+    void onButton2Pressed();
+    void onButton3Pressed();
+
+    void onAutoPressTimerHandler();
 };
 
 #endif // GRAPHIC_H
