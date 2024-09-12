@@ -16,6 +16,7 @@
 #include "lvglpp/widgets/lvlist.h"
 #include "lvglpp/widgets/lvline.h"
 #include "lvglpp/widgets/lvwindow.h"
+#include "lvglpp/widgets/lvbar.h"
 #include "lvglpp/lvstyle.h"
 
 #define MONITOR_WIDTH   1280
@@ -43,6 +44,7 @@ private:
     LvButton *tab3Button = nullptr;
 
     LvScale *scale = nullptr;
+    LvBar *bar = nullptr;
 
     QTimer *autoPressTimer = nullptr;
 

@@ -23,7 +23,7 @@ Graphic::Graphic()
 
     drawSomething();
 
-//    autoPressTimer->start(1000);
+    autoPressTimer->start(1000);
 }
 
 void Graphic::halInit()
@@ -151,6 +151,11 @@ void Graphic::drawSomething()
     scale->setTotalTickCount(21);
     scale->align(LV_ALIGN_BOTTOM_LEFT, 15, 0);
 
+    bar = new LvBar(base);
+    bar->create();
+    bar->setAlign(LV_ALIGN_TOP_MID);
+    bar->setRange(0, 100);
+
 }
 
 void Graphic::onLvTickHandler()
@@ -181,4 +186,8 @@ void Graphic::onButton3Pressed()
 void Graphic::onAutoPressTimerHandler()
 {
     tab1Button->press();
+    static int barValue = 0;
+    barValue += 10;
+    if (barValue > 100) barValue = 0;
+    bar->setValue(barValue);
 }
