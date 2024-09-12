@@ -15,6 +15,7 @@
 #include "lvglpp/widgets/lvtabview.h"
 #include "lvglpp/widgets/lvlist.h"
 #include "lvglpp/widgets/lvline.h"
+#include "lvglpp/widgets/lvwindow.h"
 #include "lvglpp/lvstyle.h"
 
 #define MONITOR_WIDTH   1280

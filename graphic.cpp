@@ -150,6 +150,7 @@ void Graphic::drawSomething()
     scale->setRange(-100, 100);
     scale->setTotalTickCount(21);
     scale->align(LV_ALIGN_BOTTOM_LEFT, 15, 0);
+
 }
 
 void Graphic::onLvTickHandler()
