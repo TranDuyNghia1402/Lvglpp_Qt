@@ -374,6 +374,7 @@ SOURCES += \
         lvglpp/core/lvgl/src/widgets/tileview/lv_tileview.c \
         lvglpp/core/lvgl/src/widgets/win/lv_win.c \
         lvglpp/lvstyle.cpp \
+        lvglpp/widgets/lvbar.cpp \
         lvglpp/widgets/lvbaseobject.cpp \
         lvglpp/widgets/lvbutton.cpp \
         lvglpp/widgets/lvbuttonmaxtrix.cpp \
@@ -837,6 +838,7 @@ HEADERS += \
     lvglpp/core/lvgl/src/widgets/win/lv_win.h \
     lvglpp/core/lvgl/src/widgets/win/lv_win_private.h \
     lvglpp/lvstyle.h \
+    lvglpp/widgets/lvbar.h \
     lvglpp/widgets/lvbaseobject.h \
     lvglpp/widgets/lvbutton.h \
     lvglpp/widgets/lvbuttonmaxtrix.h \
