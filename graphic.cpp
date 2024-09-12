@@ -103,6 +103,7 @@ void Graphic::drawSomething()
     spinbox->setDigitFormat(3, 3);
     spinbox->setRollOver(true);
     spinbox->setRange(-100, 200);
+    spinbox->setAlignTo(button, LV_ALIGN_OUT_BOTTOM_MID, 0, 50);
 
     LvList *list = new LvList(tab1);
     list->create();
