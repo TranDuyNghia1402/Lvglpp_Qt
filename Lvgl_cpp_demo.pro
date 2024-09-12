@@ -384,6 +384,7 @@ SOURCES += \
         lvglpp/widgets/lvlist.cpp \
         lvglpp/widgets/lvscale.cpp \
         lvglpp/widgets/lvtabview.cpp \
+        lvglpp/widgets/lvwindow.cpp \
         main.cpp \
         resource/bg_RGB565.c
 
@@ -846,4 +847,5 @@ HEADERS += \
     lvglpp/widgets/lvline.h \
     lvglpp/widgets/lvlist.h \
     lvglpp/widgets/lvscale.h \
-    lvglpp/widgets/lvtabview.h
+    lvglpp/widgets/lvtabview.h \
+    lvglpp/widgets/lvwindow.h
