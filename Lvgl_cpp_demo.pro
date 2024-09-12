@@ -379,6 +379,7 @@ SOURCES += \
         lvglpp/widgets/lvbutton.cpp \
         lvglpp/widgets/lvbuttonmaxtrix.cpp \
         lvglpp/widgets/lvcuractivescreen.cpp \
+        lvglpp/widgets/lvdropdownlist.cpp \
         lvglpp/widgets/lvimage.cpp \
         lvglpp/widgets/lvlabel.cpp \
         lvglpp/widgets/lvline.cpp \
@@ -846,6 +847,7 @@ HEADERS += \
     lvglpp/widgets/lvbuttonmaxtrix.h \
     lvglpp/widgets/lvcuractivescreen.h \
     lvglpp/lvglpptype.h \
+    lvglpp/widgets/lvdropdownlist.h \
     lvglpp/widgets/lvimage.h \
     lvglpp/widgets/lvlabel.h \
     lvglpp/widgets/lvline.h \

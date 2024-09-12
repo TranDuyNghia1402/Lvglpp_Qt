@@ -19,6 +19,7 @@
 #include "lvglpp/widgets/lvbar.h"
 #include "lvglpp/widgets/lvspinbox.h"
 #include "lvglpp/widgets/lvroller.h"
+#include "lvglpp/widgets/lvdropdownlist.h"
 #include "lvglpp/lvstyle.h"
 
 #define MONITOR_WIDTH   1280

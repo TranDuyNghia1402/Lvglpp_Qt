@@ -133,6 +133,20 @@ void Graphic::drawSomething()
     list->setTextColor(lv_color_hex(0xffccaa));
     list->setBorderColor(lv_color_hex(0xffccaa));
 
+    LvDropDownList *dropdown = new LvDropDownList(tab2);
+    dropdown->create();
+    dropdown->align(LV_ALIGN_CENTER, 0, 20);
+    dropdown->setOptions("Apple\n"
+                         "Banana\n"
+                         "Orange\n"
+                         "Cherry\n"
+                         "Grape\n"
+                         "Raspberry\n"
+                         "Melon\n"
+                         "Orange\n"
+                         "Lemon\n"
+                         "Nuts");
+
     LvObjectStyle listButtonStyle;
     listButtonStyle.setBgColor(lv_palette_lighten(LV_PALETTE_RED, 2));
     listButtonStyle.setHeight(30);
