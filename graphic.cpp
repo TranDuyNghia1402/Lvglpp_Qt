@@ -23,7 +23,7 @@ Graphic::Graphic()
 
     drawSomething();
 
-    autoPressTimer->start(1000);
+//    autoPressTimer->start(1000);
 }
 
 void Graphic::halInit()
@@ -79,7 +79,7 @@ void Graphic::drawSomething()
     labelStyle.setRadius(5);
     labelStyle.setBorderColor(lv_color_hex(0xffccaa));
     labelStyle.setTextColor(lv_color_hex(0xffccaa));
-    labelStyle.setAlign(LV_ALIGN_CENTER);
+    labelStyle.setAlign(LV_ALIGN_TOP_MID);
 
     LvLabel *labelOfTab1 = new LvLabel(tab1, "This is the first tab!");
     labelOfTab1->create();
@@ -105,6 +105,39 @@ void Graphic::drawSomething()
     tab3Button->create();
     tab3Button->setAlignTo(tab2Button, LV_ALIGN_OUT_BOTTOM_MID, 0, 50);
 
+    LvList *list = new LvList(tab1);
+    list->create();
+    list->center();
+    list->setHeight(280);
+    list->setBgColor(lv_palette_darken(LV_PALETTE_GREY, 3));
+    list->setTextColor(lv_color_hex(0xffccaa));
+    list->setBorderColor(lv_color_hex(0xffccaa));
+
+    LvObjectStyle listButtonStyle;
+    listButtonStyle.setBgColor(lv_palette_lighten(LV_PALETTE_RED, 2));
+    listButtonStyle.setHeight(30);
+
+    list->addText("Files");
+    LvBaseObject *button = new LvBaseObject();
+    button = list->addButton(LV_SYMBOL_FILE, "New");
+    button->addStyle(listButtonStyle);
+    button = list->addButton(LV_SYMBOL_DIRECTORY, "Open");
+    button->addStyle(listButtonStyle);
+    button = list->addButton(LV_SYMBOL_SAVE, "Save");
+    button->addStyle(listButtonStyle);
+    button = list->addButton(LV_SYMBOL_CLOSE, "Delete");
+    button->addStyle(listButtonStyle);
+
+    list->addText("Connectivity");
+    button = list->addButton(LV_SYMBOL_BLUETOOTH, "Bluetooth");
+    button->addStyle(listButtonStyle);
+    button = list->addButton(LV_SYMBOL_GPS, "Navigation");
+    button->addStyle(listButtonStyle);
+    button = list->addButton(LV_SYMBOL_USB, "USB");
+    button->addStyle(listButtonStyle);
+    button = list->addButton(LV_SYMBOL_BATTERY_FULL, "Battery");
+    button->addStyle(listButtonStyle);
+
     connect(tab1Button, &LvButton::pressed, this, &Graphic::onButton1Pressed);
     connect(tab2Button, &LvButton::pressed, this, &Graphic::onButton2Pressed);
     connect(tab3Button, &LvButton::pressed, this, &Graphic::onButton3Pressed);
@@ -115,24 +148,6 @@ void Graphic::drawSomething()
     scale->setRange(-100, 100);
     scale->setTotalTickCount(21);
     scale->align(LV_ALIGN_BOTTOM_LEFT, 15, 0);
-
-    LvButtonMaxtrix *buttonMatrix = new LvButtonMaxtrix();
-    buttonMatrix->create();
-
-    static const char* buttonMap[] = {"1", "2", "3", "4", "5", "\n",
-        "6", "7", "8", "9", "0", "\n",
-        "Action1", "Action2", ""
-    };
-    buttonMatrix->setButtonMap(buttonMap);
-    buttonMatrix->setAlign(LV_ALIGN_RIGHT_MID);
-
-    LvObjectStyle lineStyle;
-    lineStyle.setLineWidth(5);
-    lineStyle.setLineRounded(true);
-    lineStyle.setLineColor(lv_color_white());
-    lineStyle.setAlign(LV_ALIGN_LEFT_MID);
-    lineStyle.setLineDashWidth(5);
-    lineStyle.setLineDashGap(5);
 }
 
 void Graphic::onLvTickHandler()

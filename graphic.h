@@ -13,6 +13,7 @@
 #include "lvglpp/widgets/lvimage.h"
 #include "lvglpp/widgets/lvbuttonmaxtrix.h"
 #include "lvglpp/widgets/lvtabview.h"
+#include "lvglpp/widgets/lvlist.h"
 #include "lvglpp/widgets/lvline.h"
 #include "lvglpp/lvstyle.h"
 
