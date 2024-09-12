@@ -46,7 +46,7 @@ private:
     LvScale *scale = nullptr;
     LvBar *bar = nullptr;
     LvSpinbox *spinbox = nullptr;
-
+    LvRoller *roller = nullptr;
 
     QTimer *autoPressTimer = nullptr;
 

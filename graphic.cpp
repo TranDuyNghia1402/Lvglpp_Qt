@@ -105,6 +105,26 @@ void Graphic::drawSomething()
     spinbox->setRange(-100, 200);
     spinbox->setAlignTo(button, LV_ALIGN_OUT_BOTTOM_MID, 0, 50);
 
+    const char *option = "January\n"
+                         "February\n"
+                         "March\n"
+                         "April\n"
+                         "May\n"
+                         "June\n"
+                         "July\n"
+                         "August\n"
+                         "September\n"
+                         "October\n"
+                         "November\n"
+                         "December";
+    roller = new LvRoller(base);
+    roller->create();
+    roller->setOption(option, LV_ROLLER_MODE_INFINITE);
+    roller->setVisibleRows(3);
+    roller->setSize(80, 70);
+    roller->setRadius(0);
+    roller->setAlignTo(spinbox, LV_ALIGN_OUT_BOTTOM_MID, 0, 50);
+
     LvList *list = new LvList(tab1);
     list->create();
     list->align(LV_ALIGN_CENTER, 0, 20);
@@ -179,4 +199,5 @@ void Graphic::onAutoPressTimerHandler()
     if (barValue > 100) barValue = 0;
     bar->setValue(barValue);
     spinbox->increase();
+    roller->next();
 }
