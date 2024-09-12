@@ -107,7 +107,7 @@ void Graphic::drawSomething()
 
     LvList *list = new LvList(tab1);
     list->create();
-    list->center();
+    list->align(LV_ALIGN_CENTER, 0, 20);
     list->setHeight(280);
     list->setBgColor(lv_palette_darken(LV_PALETTE_GREY, 3));
     list->setTextColor(lv_color_hex(0xffccaa));
@@ -117,7 +117,8 @@ void Graphic::drawSomething()
     listButtonStyle.setBgColor(lv_palette_lighten(LV_PALETTE_RED, 2));
     listButtonStyle.setHeight(30);
 
-    list->addText("Files");
+    LvBaseObject * listText = list->addText("Files");
+    listText->setBgColor(lv_color_hex(0xffccaa));
     LvBaseObject *button = new LvBaseObject();
     button = list->addButton(LV_SYMBOL_FILE, "New");
     button->addStyle(listButtonStyle);
@@ -128,7 +129,8 @@ void Graphic::drawSomething()
     button = list->addButton(LV_SYMBOL_CLOSE, "Delete");
     button->addStyle(listButtonStyle);
 
-    list->addText("Connectivity");
+    listText = list->addText("Connectivity");
+    listText->setBgColor(lv_color_hex(0xffccaa));
     button = list->addButton(LV_SYMBOL_BLUETOOTH, "Bluetooth");
     button->addStyle(listButtonStyle);
     button = list->addButton(LV_SYMBOL_GPS, "Navigation");
