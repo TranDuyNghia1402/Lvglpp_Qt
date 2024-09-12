@@ -93,17 +93,16 @@ void Graphic::drawSomething()
     labelOfTab3->create();
     labelOfTab3->addStyle(labelStyle);
 
-    tab1Button = new LvButton(base, 75, 50, "Next");
-    tab1Button->create();
-    tab1Button->align(LV_ALIGN_TOP_RIGHT, 0, 50);
+    button = new LvButton(base, 75, 50, "Next");
+    button->create();
+    button->align(LV_ALIGN_TOP_RIGHT, 0, 50);
 
-    tab2Button = new LvButton(base, 75, 50, "Button 2");
-    tab2Button->create();
-    tab2Button->setAlignTo(tab1Button, LV_ALIGN_OUT_BOTTOM_MID, 0, 50);
-
-    tab3Button = new LvButton(base, 75, 50, "Button 3");
-    tab3Button->create();
-    tab3Button->setAlignTo(tab2Button, LV_ALIGN_OUT_BOTTOM_MID, 0, 50);
+    spinbox = new LvSpinbox(base);
+    spinbox->create();
+    spinbox->setWidth(80);
+    spinbox->setDigitFormat(3, 3);
+    spinbox->setRollOver(true);
+    spinbox->setRange(-100, 200);
 
     LvList *list = new LvList(tab1);
     list->create();
@@ -119,30 +118,28 @@ void Graphic::drawSomething()
 
     LvBaseObject * listText = list->addText("Files");
     listText->setBgColor(lv_color_hex(0xffccaa));
-    LvBaseObject *button = new LvBaseObject();
-    button = list->addButton(LV_SYMBOL_FILE, "New");
-    button->addStyle(listButtonStyle);
-    button = list->addButton(LV_SYMBOL_DIRECTORY, "Open");
-    button->addStyle(listButtonStyle);
-    button = list->addButton(LV_SYMBOL_SAVE, "Save");
-    button->addStyle(listButtonStyle);
-    button = list->addButton(LV_SYMBOL_CLOSE, "Delete");
-    button->addStyle(listButtonStyle);
+    LvBaseObject *listButton = new LvBaseObject();
+    listButton = list->addButton(LV_SYMBOL_FILE, "New");
+    listButton->addStyle(listButtonStyle);
+    listButton = list->addButton(LV_SYMBOL_DIRECTORY, "Open");
+    listButton->addStyle(listButtonStyle);
+    listButton = list->addButton(LV_SYMBOL_SAVE, "Save");
+    listButton->addStyle(listButtonStyle);
+    listButton = list->addButton(LV_SYMBOL_CLOSE, "Delete");
+    listButton->addStyle(listButtonStyle);
 
     listText = list->addText("Connectivity");
     listText->setBgColor(lv_color_hex(0xffccaa));
-    button = list->addButton(LV_SYMBOL_BLUETOOTH, "Bluetooth");
-    button->addStyle(listButtonStyle);
-    button = list->addButton(LV_SYMBOL_GPS, "Navigation");
-    button->addStyle(listButtonStyle);
-    button = list->addButton(LV_SYMBOL_USB, "USB");
-    button->addStyle(listButtonStyle);
-    button = list->addButton(LV_SYMBOL_BATTERY_FULL, "Battery");
-    button->addStyle(listButtonStyle);
+    listButton = list->addButton(LV_SYMBOL_BLUETOOTH, "Bluetooth");
+    listButton->addStyle(listButtonStyle);
+    listButton = list->addButton(LV_SYMBOL_GPS, "Navigation");
+    listButton->addStyle(listButtonStyle);
+    listButton = list->addButton(LV_SYMBOL_USB, "USB");
+    listButton->addStyle(listButtonStyle);
+    listButton = list->addButton(LV_SYMBOL_BATTERY_FULL, "Battery");
+    listButton->addStyle(listButtonStyle);
 
-    connect(tab1Button, &LvButton::pressed, this, &Graphic::onButton1Pressed);
-    connect(tab2Button, &LvButton::pressed, this, &Graphic::onButton2Pressed);
-    connect(tab3Button, &LvButton::pressed, this, &Graphic::onButton3Pressed);
+    connect(button, &LvButton::pressed, this, &Graphic::onButton1Pressed);
 
     scale = new LvScale(base);
     scale->create();
@@ -173,21 +170,12 @@ void Graphic::onButton1Pressed()
     tabview->moveToNextTab();
 }
 
-void Graphic::onButton2Pressed()
-{
-    tabview->setActive(1);
-}
-
-void Graphic::onButton3Pressed()
-{
-    tabview->setActive(2);
-}
-
 void Graphic::onAutoPressTimerHandler()
 {
-    tab1Button->press();
+    button->press();
     static int barValue = 0;
     barValue += 10;
     if (barValue > 100) barValue = 0;
     bar->setValue(barValue);
+    spinbox->increase();
 }
