@@ -384,6 +384,7 @@ SOURCES += \
         lvglpp/widgets/lvlabel.cpp \
         lvglpp/widgets/lvline.cpp \
         lvglpp/widgets/lvlist.cpp \
+        lvglpp/widgets/lvmessagebox.cpp \
         lvglpp/widgets/lvroller.cpp \
         lvglpp/widgets/lvscale.cpp \
         lvglpp/widgets/lvslider.cpp \
@@ -853,6 +854,7 @@ HEADERS += \
     lvglpp/widgets/lvlabel.h \
     lvglpp/widgets/lvline.h \
     lvglpp/widgets/lvlist.h \
+    lvglpp/widgets/lvmessagebox.h \
     lvglpp/widgets/lvroller.h \
     lvglpp/widgets/lvscale.h \
     lvglpp/widgets/lvslider.h \
