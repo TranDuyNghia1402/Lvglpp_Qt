@@ -242,10 +242,10 @@ public:
      * @warning do not call this function
      * @return
      */
-    LvStyle *getStyle() const;
+    const LvStyle *getStyle() const;
 
 private:
-    static LvStyle mStyle;
+    LvStyle mStyle;
 };
 
 #endif // LVSTYLE_H

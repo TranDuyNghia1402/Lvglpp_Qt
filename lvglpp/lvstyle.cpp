@@ -1,8 +1,6 @@
 #include "lvstyle.h"
 #include <QDebug>
 
-LvStyle LvObjectStyle::mStyle;
-
 LvObjectStyle::LvObjectStyle()
 {
     lv_style_init(&mStyle);
