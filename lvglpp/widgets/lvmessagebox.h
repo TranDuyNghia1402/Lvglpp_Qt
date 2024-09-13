@@ -42,5 +42,11 @@ public:
      */
     LvBaseObject *addFooterButton(const char *text);
 
+    /**
+     * @brief addCloseButton: add a close button to the messagebox.It also creates a header
+     * @return
+     */
+    LvBaseObject *addCloseButton();
+
 };
 #endif // LVMESSAGEBOX_H

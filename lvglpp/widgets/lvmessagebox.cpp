@@ -73,3 +73,17 @@ LvBaseObject *LvMessageBox::addFooterButton(const char *text)
 
     return button;
 }
+
+LvBaseObject *LvMessageBox::addCloseButton()
+{
+    if (!mLvObj || !isCreated)
+    {
+        qDebug() << "[Warning] MessageBox was not created!";
+        return nullptr;
+    }
+    LvObj* baseType = lv_msgbox_add_close_button(mLvObj);
+    LvBaseObject *button = new LvBaseObject();
+    button->setLvObject(baseType);
+
+    return button;
+}
