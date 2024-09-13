@@ -53,7 +53,7 @@ void Graphic::drawSomething()
     base->setBorderWidth(3);
     base->setBorderColor(lv_color_black());
 
-    LvObjectStyle tabviewStyle;
+    static LvObjectStyle tabviewStyle;
     tabviewStyle.setBorderWidth(2);
     tabviewStyle.setBorderSide(LV_BORDER_SIDE_INTERNAL);
 
@@ -75,7 +75,7 @@ void Graphic::drawSomething()
     LvBaseObject *tab2 = tabview->addTab("Tab 2");
     LvBaseObject *tab3 = tabview->addTab("Tab 3");
 
-    LvObjectStyle labelStyle;
+    static LvObjectStyle labelStyle;
     labelStyle.setBgOpa(LV_OPA_0);
     labelStyle.setBorderWidth(2);
     labelStyle.setRadius(5);
@@ -149,7 +149,7 @@ void Graphic::drawSomething()
                          "Lemon\n"
                          "Nuts");
 
-    LvObjectStyle listButtonStyle;
+    static LvObjectStyle listButtonStyle;
     listButtonStyle.setBgColor(lv_palette_lighten(LV_PALETTE_RED, 2));
     listButtonStyle.setHeight(30);
 
