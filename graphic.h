@@ -37,6 +37,7 @@ private:
 
     void halInit(void);
     void drawSomething(void);
+    void csdspSimulator(void);
 
     LvImage *backGround = nullptr;
     LvBaseObject *base = nullptr;

@@ -148,6 +148,11 @@ void LvObjectStyle::setTextColor(const LvColor color)
     lv_style_set_text_color(&mStyle, color);
 }
 
+void LvObjectStyle::setTextAlign(const LvTextAlign &align)
+{
+    lv_style_set_text_align(&mStyle, align);
+}
+
 void LvObjectStyle::setRadius(const int32_t &radius)
 {
     lv_style_set_radius(&mStyle, radius);

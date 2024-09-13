@@ -1,6 +1,9 @@
 #include "graphic.h"
 #include <QDebug>
 
+#define BG_COLOR    0x181818
+#define GUI_COLOR   0x00E8E8
+
 Graphic::Graphic()
 {
     lvTickTimer = new QTimer();
@@ -21,9 +24,8 @@ Graphic::Graphic()
 
     halInit();
 
-    drawSomething();
-
-    autoPressTimer->start(1000);
+//    drawSomething();
+    csdspSimulator();
 }
 
 void Graphic::halInit()
@@ -188,6 +190,39 @@ void Graphic::drawSomething()
     bar->setAlign(LV_ALIGN_TOP_MID);
     bar->setRange(0, 100);
 
+    autoPressTimer->start(1000);
+}
+
+void Graphic::csdspSimulator()
+{
+    LV_IMAGE_DECLARE(bg);
+    backGround = new LvImage(LvCurrentActScreen::getActiveScreen(), &bg);
+    backGround->create();
+
+    LvObjectStyle labelStyle;
+    labelStyle.setWidth(60);
+    labelStyle.setBorderWidth(1);
+    labelStyle.setRadius(3);
+    labelStyle.setTextAlign(LV_TEXT_ALIGN_CENTER);
+    labelStyle.setBorderColor(lv_color_hex(GUI_COLOR));
+    labelStyle.setBgOpa(LV_OPA_COVER);
+    labelStyle.setBgColor(lv_color_hex(BG_COLOR));
+    labelStyle.setTextColor(lv_color_hex(GUI_COLOR));
+
+    LvLabel *lbCameraChannel = new LvLabel(LvCurrentActScreen::getActiveScreen(), "DAY");
+    lbCameraChannel->create();
+    lbCameraChannel->addStyle(labelStyle);
+
+    LvLabel *lbZoomLevel = new LvLabel(LvCurrentActScreen::getActiveScreen(), "1X");
+    lbZoomLevel->create();
+    lbZoomLevel->setAlign(LV_ALIGN_TOP_RIGHT);
+    lbZoomLevel->addStyle(labelStyle);
+
+    LvLabel *lbLaserResult = new LvLabel(LvCurrentActScreen::getActiveScreen(), "DISTANCE:");
+    lbLaserResult->create();
+    lbLaserResult->setAlign(LV_ALIGN_TOP_MID);
+    lbLaserResult->setWidth(200);
+    lbLaserResult->addStyle(labelStyle);
 }
 
 void Graphic::onLvTickHandler()

@@ -179,6 +179,12 @@ public:
     void setTextColor(const LvColor color);
 
     /**
+     * @brief setTextAlign: set style text align
+     * @param align
+     */
+    void setTextAlign(const LvTextAlign &align);
+
+    /**
      * @brief setRadius: set style radius
      * @param radius
      * @param selector
