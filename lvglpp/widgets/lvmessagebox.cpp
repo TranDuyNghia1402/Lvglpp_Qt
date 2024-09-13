@@ -87,3 +87,79 @@ LvBaseObject *LvMessageBox::addCloseButton()
 
     return button;
 }
+
+LvBaseObject *LvMessageBox::getHeader() const
+{
+    if (!mLvObj || !isCreated)
+    {
+        qDebug() << "[Warning] MessageBox was not created!";
+        return nullptr;
+    }
+    LvObj* baseType = lv_msgbox_get_header(mLvObj);
+    LvBaseObject *header = new LvBaseObject();
+    header->setLvObject(baseType);
+
+    return header;
+}
+
+LvBaseObject *LvMessageBox::getFooter() const
+{
+    if (!mLvObj || !isCreated)
+    {
+        qDebug() << "[Warning] MessageBox was not created!";
+        return nullptr;
+    }
+    LvObj* baseType = lv_msgbox_get_footer(mLvObj);
+    LvBaseObject *footer = new LvBaseObject();
+    footer->setLvObject(baseType);
+
+    return footer;
+}
+
+LvBaseObject *LvMessageBox::getContent() const
+{
+    if (!mLvObj || !isCreated)
+    {
+        qDebug() << "[Warning] MessageBox was not created!";
+        return nullptr;
+    }
+    LvObj* baseType = lv_msgbox_get_content(mLvObj);
+    LvBaseObject *content = new LvBaseObject();
+    content->setLvObject(baseType);
+
+    return content;
+}
+
+LvBaseObject *LvMessageBox::getTitle() const
+{
+    if (!mLvObj || !isCreated)
+    {
+        qDebug() << "[Warning] MessageBox was not created!";
+        return nullptr;
+    }
+    LvObj* baseType = lv_msgbox_get_title(mLvObj);
+    LvBaseObject *title = new LvBaseObject();
+    title->setLvObject(baseType);
+
+    return title;
+}
+
+void LvMessageBox::close()
+{
+    if (!mLvObj || !isCreated)
+    {
+        qDebug() << "[Warning] MessageBox was not created!";
+        return;
+    }
+    lv_msgbox_close(mLvObj);
+}
+
+void LvMessageBox::closeAsync()
+{
+    if (!mLvObj || !isCreated)
+    {
+        qDebug() << "[Warning] MessageBox was not created!";
+        return;
+    }
+    lv_msgbox_close_async(mLvObj);
+}

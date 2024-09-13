@@ -48,5 +48,39 @@ public:
      */
     LvBaseObject *addCloseButton();
 
+    /**
+     * @brief getHeader: get the header widget
+     * @return
+     */
+    LvBaseObject *getHeader() const;
+
+    /**
+     * @brief getFooter: get the footer widget
+     * @return
+     */
+    LvBaseObject *getFooter() const;
+
+    /**
+     * @brief getContent: get the content widget
+     * @return
+     */
+    LvBaseObject *getContent() const;
+
+    /**
+     * @brief getTitle: get the title label
+     * @return
+     */
+    LvBaseObject *getTitle() const;
+
+    /**
+     * @brief close: close the message box
+     */
+    void close();
+
+    /**
+     * @brief closeAsync: close a message box in the next call of the message box
+     */
+    void closeAsync();
+
 };
 #endif // LVMESSAGEBOX_H
