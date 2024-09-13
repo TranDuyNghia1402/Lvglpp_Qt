@@ -27,3 +27,13 @@ void LvMessageBox::addTitle(const char *title)
     }
     lv_msgbox_add_title(mLvObj, title);
 }
+
+void LvMessageBox::addHeaderButton(const void *icon)
+{
+    if (!mLvObj || !isCreated)
+    {
+        qDebug() << "[Warning] MessageBox was not created!";
+        return;
+    }
+    lv_msgbox_add_header_button(mLvObj, icon);
+}

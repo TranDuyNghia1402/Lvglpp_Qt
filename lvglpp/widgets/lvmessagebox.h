@@ -19,6 +19,13 @@ public:
      * @param title
      */
     void addTitle(const char *title);
-};
 
+    /**
+     * @brief addHeaderButton: add a button to the header of to the message box. It also creates a header.
+     * @param icon
+     */
+    void addHeaderButton(const void *icon);
+
+
+};
 #endif // LVMESSAGEBOX_H
