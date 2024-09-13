@@ -7,392 +7,359 @@ CONFIG += c++17 cmdline
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        graphic.cpp \
-        lvglpp/core/lvgl/src/core/lv_group.c \
-        lvglpp/core/lvgl/src/core/lv_obj.c \
-        lvglpp/core/lvgl/src/core/lv_obj_class.c \
-        lvglpp/core/lvgl/src/core/lv_obj_draw.c \
-        lvglpp/core/lvgl/src/core/lv_obj_event.c \
-        lvglpp/core/lvgl/src/core/lv_obj_id_builtin.c \
-        lvglpp/core/lvgl/src/core/lv_obj_pos.c \
-        lvglpp/core/lvgl/src/core/lv_obj_property.c \
-        lvglpp/core/lvgl/src/core/lv_obj_scroll.c \
-        lvglpp/core/lvgl/src/core/lv_obj_style.c \
-        lvglpp/core/lvgl/src/core/lv_obj_style_gen.c \
-        lvglpp/core/lvgl/src/core/lv_obj_tree.c \
-        lvglpp/core/lvgl/src/core/lv_refr.c \
-        lvglpp/core/lvgl/src/display/lv_display.c \
-        lvglpp/core/lvgl/src/draw/lv_draw.c \
-        lvglpp/core/lvgl/src/draw/lv_draw_arc.c \
-        lvglpp/core/lvgl/src/draw/lv_draw_buf.c \
-        lvglpp/core/lvgl/src/draw/lv_draw_image.c \
-        lvglpp/core/lvgl/src/draw/lv_draw_label.c \
-        lvglpp/core/lvgl/src/draw/lv_draw_line.c \
-        lvglpp/core/lvgl/src/draw/lv_draw_mask.c \
-        lvglpp/core/lvgl/src/draw/lv_draw_rect.c \
-        lvglpp/core/lvgl/src/draw/lv_draw_triangle.c \
-        lvglpp/core/lvgl/src/draw/lv_draw_vector.c \
-        lvglpp/core/lvgl/src/draw/lv_image_decoder.c \
-        lvglpp/core/lvgl/src/draw/nxp/pxp/lv_draw_buf_pxp.c \
-        lvglpp/core/lvgl/src/draw/nxp/pxp/lv_draw_pxp.c \
-        lvglpp/core/lvgl/src/draw/nxp/pxp/lv_draw_pxp_fill.c \
-        lvglpp/core/lvgl/src/draw/nxp/pxp/lv_draw_pxp_img.c \
-        lvglpp/core/lvgl/src/draw/nxp/pxp/lv_draw_pxp_layer.c \
-        lvglpp/core/lvgl/src/draw/nxp/pxp/lv_pxp_cfg.c \
-        lvglpp/core/lvgl/src/draw/nxp/pxp/lv_pxp_osa.c \
-        lvglpp/core/lvgl/src/draw/nxp/pxp/lv_pxp_utils.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_buf_vglite.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_arc.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_border.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_fill.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_img.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_label.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_layer.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_line.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_triangle.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_vglite_buf.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_vglite_matrix.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_vglite_path.c \
-        lvglpp/core/lvgl/src/draw/nxp/vglite/lv_vglite_utils.c \
-        lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d.c \
-        lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_arc.c \
-        lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_border.c \
-        lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_fill.c \
-        lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_image.c \
-        lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_label.c \
-        lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_line.c \
-        lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_mask_rectangle.c \
-        lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_triangle.c \
-        lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_utils.c \
-        lvglpp/core/lvgl/src/draw/sdl/lv_draw_sdl.c \
-        lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend.c \
-        lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c \
-        lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888.c \
-        lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_i1.c \
-        lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_l8.c \
-        lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.c \
-        lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb888.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_arc.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_border.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_box_shadow.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_fill.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_gradient.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_img.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_letter.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_line.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_mask.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_mask_rect.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_transform.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_triangle.c \
-        lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_vector.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_buf_vg_lite.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_arc.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_border.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_box_shadow.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_fill.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_img.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_label.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_layer.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_line.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_mask_rect.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_triangle.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_vector.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_decoder.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_grad.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_math.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_path.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_pending.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_stroke.c \
-        lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_utils.c \
-        lvglpp/core/lvgl/src/drivers/display/drm/lv_linux_drm.c \
-        lvglpp/core/lvgl/src/drivers/display/fb/lv_linux_fbdev.c \
-        lvglpp/core/lvgl/src/drivers/display/ili9341/lv_ili9341.c \
-        lvglpp/core/lvgl/src/drivers/display/lcd/lv_lcd_generic_mipi.c \
-        lvglpp/core/lvgl/src/drivers/display/renesas_glcdc/lv_renesas_glcdc.c \
-        lvglpp/core/lvgl/src/drivers/display/st7735/lv_st7735.c \
-        lvglpp/core/lvgl/src/drivers/display/st7789/lv_st7789.c \
-        lvglpp/core/lvgl/src/drivers/display/st7796/lv_st7796.c \
-        lvglpp/core/lvgl/src/drivers/display/tft_espi/lv_tft_espi.cpp \
-        lvglpp/core/lvgl/src/drivers/evdev/lv_evdev.c \
-        lvglpp/core/lvgl/src/drivers/glfw/lv_glfw_window.c \
-        lvglpp/core/lvgl/src/drivers/glfw/lv_opengles_debug.c \
-        lvglpp/core/lvgl/src/drivers/glfw/lv_opengles_driver.c \
-        lvglpp/core/lvgl/src/drivers/glfw/lv_opengles_texture.c \
-        lvglpp/core/lvgl/src/drivers/libinput/lv_libinput.c \
-        lvglpp/core/lvgl/src/drivers/libinput/lv_xkb.c \
-        lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_cache.c \
-        lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_entry.c \
-        lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_fbdev.c \
-        lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_image_cache.c \
-        lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_lcd.c \
-        lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_libuv.c \
-        lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_profiler.c \
-        lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_touchscreen.c \
-        lvglpp/core/lvgl/src/drivers/qnx/lv_qnx.c \
-        lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_keyboard.c \
-        lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_mouse.c \
-        lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_mousewheel.c \
-        lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_window.c \
-        lvglpp/core/lvgl/src/drivers/wayland/lv_wayland.c \
-        lvglpp/core/lvgl/src/drivers/wayland/lv_wayland_smm.c \
-        lvglpp/core/lvgl/src/drivers/windows/lv_windows_context.c \
-        lvglpp/core/lvgl/src/drivers/windows/lv_windows_display.c \
-        lvglpp/core/lvgl/src/drivers/windows/lv_windows_input.c \
-        lvglpp/core/lvgl/src/drivers/x11/lv_x11_display.c \
-        lvglpp/core/lvgl/src/drivers/x11/lv_x11_input.c \
-        lvglpp/core/lvgl/src/font/lv_binfont_loader.c \
-        lvglpp/core/lvgl/src/font/lv_font.c \
-        lvglpp/core/lvgl/src/font/lv_font_dejavu_16_persian_hebrew.c \
-        lvglpp/core/lvgl/src/font/lv_font_fmt_txt.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_10.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_12.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_14.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_16.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_18.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_20.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_22.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_24.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_26.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_28.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_28_compressed.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_30.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_32.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_34.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_36.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_38.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_40.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_42.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_44.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_46.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_48.c \
-        lvglpp/core/lvgl/src/font/lv_font_montserrat_8.c \
-        lvglpp/core/lvgl/src/font/lv_font_simsun_14_cjk.c \
-        lvglpp/core/lvgl/src/font/lv_font_simsun_16_cjk.c \
-        lvglpp/core/lvgl/src/font/lv_font_unscii_16.c \
-        lvglpp/core/lvgl/src/font/lv_font_unscii_8.c \
-        lvglpp/core/lvgl/src/indev/lv_indev.c \
-        lvglpp/core/lvgl/src/indev/lv_indev_scroll.c \
-        lvglpp/core/lvgl/src/layouts/flex/lv_flex.c \
-        lvglpp/core/lvgl/src/layouts/grid/lv_grid.c \
-        lvglpp/core/lvgl/src/layouts/lv_layout.c \
-        lvglpp/core/lvgl/src/libs/barcode/code128.c \
-        lvglpp/core/lvgl/src/libs/barcode/lv_barcode.c \
-        lvglpp/core/lvgl/src/libs/bin_decoder/lv_bin_decoder.c \
-        lvglpp/core/lvgl/src/libs/bmp/lv_bmp.c \
-        lvglpp/core/lvgl/src/libs/ffmpeg/lv_ffmpeg.c \
-        lvglpp/core/lvgl/src/libs/freetype/lv_freetype.c \
-        lvglpp/core/lvgl/src/libs/freetype/lv_freetype_glyph.c \
-        lvglpp/core/lvgl/src/libs/freetype/lv_freetype_image.c \
-        lvglpp/core/lvgl/src/libs/freetype/lv_freetype_outline.c \
-        lvglpp/core/lvgl/src/libs/freetype/lv_ftsystem.c \
-        lvglpp/core/lvgl/src/libs/fsdrv/lv_fs_arduino_esp_littlefs.cpp \
-        lvglpp/core/lvgl/src/libs/fsdrv/lv_fs_arduino_sd.cpp \
-        lvglpp/core/lvgl/src/libs/fsdrv/lv_fs_cbfs.c \
-        lvglpp/core/lvgl/src/libs/fsdrv/lv_fs_fatfs.c \
-        lvglpp/core/lvgl/src/libs/fsdrv/lv_fs_littlefs.c \
-        lvglpp/core/lvgl/src/libs/fsdrv/lv_fs_memfs.c \
-        lvglpp/core/lvgl/src/libs/fsdrv/lv_fs_posix.c \
-        lvglpp/core/lvgl/src/libs/fsdrv/lv_fs_stdio.c \
-        lvglpp/core/lvgl/src/libs/fsdrv/lv_fs_win32.c \
-        lvglpp/core/lvgl/src/libs/gif/gifdec.c \
-        lvglpp/core/lvgl/src/libs/gif/lv_gif.c \
-        lvglpp/core/lvgl/src/libs/libjpeg_turbo/lv_libjpeg_turbo.c \
-        lvglpp/core/lvgl/src/libs/libpng/lv_libpng.c \
-        lvglpp/core/lvgl/src/libs/lodepng/lodepng.c \
-        lvglpp/core/lvgl/src/libs/lodepng/lv_lodepng.c \
-        lvglpp/core/lvgl/src/libs/lz4/lz4.c \
-        lvglpp/core/lvgl/src/libs/qrcode/lv_qrcode.c \
-        lvglpp/core/lvgl/src/libs/qrcode/qrcodegen.c \
-        lvglpp/core/lvgl/src/libs/rle/lv_rle.c \
-        lvglpp/core/lvgl/src/libs/rlottie/lv_rlottie.c \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgAccessor.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgAnimation.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgCanvas.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgCapi.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgCompressor.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgFill.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgGlCanvas.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgInitializer.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgLines.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgLoader.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgLottieAnimation.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgLottieBuilder.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgLottieExpressions.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgLottieInterpolator.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgLottieLoader.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgLottieModel.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgLottieParser.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgLottieParserHandler.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgMath.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgPaint.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgPicture.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgRawLoader.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgRender.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSaver.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgScene.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgShape.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgStr.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSvgCssStyle.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSvgLoader.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSvgPath.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSvgSceneBuilder.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSvgUtil.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSwCanvas.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSwFill.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSwImage.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSwMath.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSwMemPool.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSwRaster.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSwRenderer.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSwRle.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSwShape.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgSwStroke.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgTaskScheduler.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgText.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgWgCanvas.cpp \
-        lvglpp/core/lvgl/src/libs/thorvg/tvgXmlParser.cpp \
-        lvglpp/core/lvgl/src/libs/tiny_ttf/lv_tiny_ttf.c \
-        lvglpp/core/lvgl/src/libs/tjpgd/lv_tjpgd.c \
-        lvglpp/core/lvgl/src/libs/tjpgd/tjpgd.c \
-        lvglpp/core/lvgl/src/lv_init.c \
-        lvglpp/core/lvgl/src/misc/cache/lv_cache.c \
-        lvglpp/core/lvgl/src/misc/cache/lv_cache_entry.c \
-        lvglpp/core/lvgl/src/misc/cache/lv_cache_lru_rb.c \
-        lvglpp/core/lvgl/src/misc/cache/lv_image_cache.c \
-        lvglpp/core/lvgl/src/misc/cache/lv_image_header_cache.c \
-        lvglpp/core/lvgl/src/misc/lv_anim.c \
-        lvglpp/core/lvgl/src/misc/lv_anim_timeline.c \
-        lvglpp/core/lvgl/src/misc/lv_area.c \
-        lvglpp/core/lvgl/src/misc/lv_array.c \
-        lvglpp/core/lvgl/src/misc/lv_async.c \
-        lvglpp/core/lvgl/src/misc/lv_bidi.c \
-        lvglpp/core/lvgl/src/misc/lv_color.c \
-        lvglpp/core/lvgl/src/misc/lv_color_op.c \
-        lvglpp/core/lvgl/src/misc/lv_event.c \
-        lvglpp/core/lvgl/src/misc/lv_fs.c \
-        lvglpp/core/lvgl/src/misc/lv_iter.c \
-        lvglpp/core/lvgl/src/misc/lv_ll.c \
-        lvglpp/core/lvgl/src/misc/lv_log.c \
-        lvglpp/core/lvgl/src/misc/lv_lru.c \
-        lvglpp/core/lvgl/src/misc/lv_math.c \
-        lvglpp/core/lvgl/src/misc/lv_matrix.c \
-        lvglpp/core/lvgl/src/misc/lv_palette.c \
-        lvglpp/core/lvgl/src/misc/lv_profiler_builtin.c \
-        lvglpp/core/lvgl/src/misc/lv_rb.c \
-        lvglpp/core/lvgl/src/misc/lv_style.c \
-        lvglpp/core/lvgl/src/misc/lv_style_gen.c \
-        lvglpp/core/lvgl/src/misc/lv_templ.c \
-        lvglpp/core/lvgl/src/misc/lv_text.c \
-        lvglpp/core/lvgl/src/misc/lv_text_ap.c \
-        lvglpp/core/lvgl/src/misc/lv_timer.c \
-        lvglpp/core/lvgl/src/misc/lv_utils.c \
-        lvglpp/core/lvgl/src/osal/lv_cmsis_rtos2.c \
-        lvglpp/core/lvgl/src/osal/lv_freertos.c \
-        lvglpp/core/lvgl/src/osal/lv_mqx.c \
-        lvglpp/core/lvgl/src/osal/lv_os.c \
-        lvglpp/core/lvgl/src/osal/lv_os_none.c \
-        lvglpp/core/lvgl/src/osal/lv_pthread.c \
-        lvglpp/core/lvgl/src/osal/lv_rtthread.c \
-        lvglpp/core/lvgl/src/osal/lv_windows.c \
-        lvglpp/core/lvgl/src/others/file_explorer/lv_file_explorer.c \
-        lvglpp/core/lvgl/src/others/font_manager/lv_font_manager.c \
-        lvglpp/core/lvgl/src/others/font_manager/lv_font_manager_recycle.c \
-        lvglpp/core/lvgl/src/others/font_manager/lv_font_manager_utils.c \
-        lvglpp/core/lvgl/src/others/fragment/lv_fragment.c \
-        lvglpp/core/lvgl/src/others/fragment/lv_fragment_manager.c \
-        lvglpp/core/lvgl/src/others/gridnav/lv_gridnav.c \
-        lvglpp/core/lvgl/src/others/ime/lv_ime_pinyin.c \
-        lvglpp/core/lvgl/src/others/imgfont/lv_imgfont.c \
-        lvglpp/core/lvgl/src/others/monkey/lv_monkey.c \
-        lvglpp/core/lvgl/src/others/observer/lv_observer.c \
-        lvglpp/core/lvgl/src/others/snapshot/lv_snapshot.c \
-        lvglpp/core/lvgl/src/others/sysmon/lv_sysmon.c \
-        lvglpp/core/lvgl/src/others/vg_lite_tvg/vg_lite_matrix.c \
-        lvglpp/core/lvgl/src/others/vg_lite_tvg/vg_lite_tvg.cpp \
-        lvglpp/core/lvgl/src/stdlib/builtin/lv_mem_core_builtin.c \
-        lvglpp/core/lvgl/src/stdlib/builtin/lv_sprintf_builtin.c \
-        lvglpp/core/lvgl/src/stdlib/builtin/lv_string_builtin.c \
-        lvglpp/core/lvgl/src/stdlib/builtin/lv_tlsf.c \
-        lvglpp/core/lvgl/src/stdlib/clib/lv_mem_core_clib.c \
-        lvglpp/core/lvgl/src/stdlib/clib/lv_sprintf_clib.c \
-        lvglpp/core/lvgl/src/stdlib/clib/lv_string_clib.c \
-        lvglpp/core/lvgl/src/stdlib/lv_mem.c \
-        lvglpp/core/lvgl/src/stdlib/micropython/lv_mem_core_micropython.c \
-        lvglpp/core/lvgl/src/stdlib/rtthread/lv_mem_core_rtthread.c \
-        lvglpp/core/lvgl/src/stdlib/rtthread/lv_sprintf_rtthread.c \
-        lvglpp/core/lvgl/src/stdlib/rtthread/lv_string_rtthread.c \
-        lvglpp/core/lvgl/src/themes/default/lv_theme_default.c \
-        lvglpp/core/lvgl/src/themes/lv_theme.c \
-        lvglpp/core/lvgl/src/themes/mono/lv_theme_mono.c \
-        lvglpp/core/lvgl/src/themes/simple/lv_theme_simple.c \
-        lvglpp/core/lvgl/src/tick/lv_tick.c \
-        lvglpp/core/lvgl/src/widgets/animimage/lv_animimage.c \
-        lvglpp/core/lvgl/src/widgets/arc/lv_arc.c \
-        lvglpp/core/lvgl/src/widgets/bar/lv_bar.c \
-        lvglpp/core/lvgl/src/widgets/button/lv_button.c \
-        lvglpp/core/lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.c \
-        lvglpp/core/lvgl/src/widgets/calendar/lv_calendar.c \
-        lvglpp/core/lvgl/src/widgets/calendar/lv_calendar_chinese.c \
-        lvglpp/core/lvgl/src/widgets/calendar/lv_calendar_header_arrow.c \
-        lvglpp/core/lvgl/src/widgets/calendar/lv_calendar_header_dropdown.c \
-        lvglpp/core/lvgl/src/widgets/canvas/lv_canvas.c \
-        lvglpp/core/lvgl/src/widgets/chart/lv_chart.c \
-        lvglpp/core/lvgl/src/widgets/checkbox/lv_checkbox.c \
-        lvglpp/core/lvgl/src/widgets/dropdown/lv_dropdown.c \
-        lvglpp/core/lvgl/src/widgets/image/lv_image.c \
-        lvglpp/core/lvgl/src/widgets/imagebutton/lv_imagebutton.c \
-        lvglpp/core/lvgl/src/widgets/keyboard/lv_keyboard.c \
-        lvglpp/core/lvgl/src/widgets/label/lv_label.c \
-        lvglpp/core/lvgl/src/widgets/led/lv_led.c \
-        lvglpp/core/lvgl/src/widgets/line/lv_line.c \
-        lvglpp/core/lvgl/src/widgets/list/lv_list.c \
-        lvglpp/core/lvgl/src/widgets/lottie/lv_lottie.c \
-        lvglpp/core/lvgl/src/widgets/menu/lv_menu.c \
-        lvglpp/core/lvgl/src/widgets/msgbox/lv_msgbox.c \
-        lvglpp/core/lvgl/src/widgets/objx_templ/lv_objx_templ.c \
-        lvglpp/core/lvgl/src/widgets/property/lv_dropdown_properties.c \
-        lvglpp/core/lvgl/src/widgets/property/lv_image_properties.c \
-        lvglpp/core/lvgl/src/widgets/property/lv_keyboard_properties.c \
-        lvglpp/core/lvgl/src/widgets/property/lv_label_properties.c \
-        lvglpp/core/lvgl/src/widgets/property/lv_obj_properties.c \
-        lvglpp/core/lvgl/src/widgets/property/lv_roller_properties.c \
-        lvglpp/core/lvgl/src/widgets/property/lv_style_properties.c \
-        lvglpp/core/lvgl/src/widgets/property/lv_textarea_properties.c \
-        lvglpp/core/lvgl/src/widgets/roller/lv_roller.c \
-        lvglpp/core/lvgl/src/widgets/scale/lv_scale.c \
-        lvglpp/core/lvgl/src/widgets/slider/lv_slider.c \
-        lvglpp/core/lvgl/src/widgets/span/lv_span.c \
-        lvglpp/core/lvgl/src/widgets/spinbox/lv_spinbox.c \
-        lvglpp/core/lvgl/src/widgets/spinner/lv_spinner.c \
-        lvglpp/core/lvgl/src/widgets/switch/lv_switch.c \
-        lvglpp/core/lvgl/src/widgets/table/lv_table.c \
-        lvglpp/core/lvgl/src/widgets/tabview/lv_tabview.c \
-        lvglpp/core/lvgl/src/widgets/textarea/lv_textarea.c \
-        lvglpp/core/lvgl/src/widgets/tileview/lv_tileview.c \
-        lvglpp/core/lvgl/src/widgets/win/lv_win.c \
-        lvglpp/lvstyle.cpp \
-        lvglpp/widgets/lvbar.cpp \
-        lvglpp/widgets/lvbaseobject.cpp \
-        lvglpp/widgets/lvbutton.cpp \
-        lvglpp/widgets/lvbuttonmaxtrix.cpp \
-        lvglpp/widgets/lvcuractivescreen.cpp \
-        lvglpp/widgets/lvdropdownlist.cpp \
-        lvglpp/widgets/lvimage.cpp \
-        lvglpp/widgets/lvlabel.cpp \
-        lvglpp/widgets/lvline.cpp \
-        lvglpp/widgets/lvlist.cpp \
-        lvglpp/widgets/lvmessagebox.cpp \
-        lvglpp/widgets/lvroller.cpp \
-        lvglpp/widgets/lvscale.cpp \
-        lvglpp/widgets/lvslider.cpp \
-        lvglpp/widgets/lvspinbox.cpp \
-        lvglpp/widgets/lvtabview.cpp \
-        lvglpp/widgets/lvwindow.cpp \
-        main.cpp \
-        resource/bg_RGB565.c
+    lvglpp/core/lvgl/src/core/lv_group.c \
+    lvglpp/core/lvgl/src/core/lv_obj.c \
+    lvglpp/core/lvgl/src/core/lv_obj_class.c \
+    lvglpp/core/lvgl/src/core/lv_obj_draw.c \
+    lvglpp/core/lvgl/src/core/lv_obj_event.c \
+    lvglpp/core/lvgl/src/core/lv_obj_id_builtin.c \
+    lvglpp/core/lvgl/src/core/lv_obj_pos.c \
+    lvglpp/core/lvgl/src/core/lv_obj_property.c \
+    lvglpp/core/lvgl/src/core/lv_obj_scroll.c \
+    lvglpp/core/lvgl/src/core/lv_obj_style.c \
+    lvglpp/core/lvgl/src/core/lv_obj_style_gen.c \
+    lvglpp/core/lvgl/src/core/lv_obj_tree.c \
+    lvglpp/core/lvgl/src/core/lv_refr.c \
+    lvglpp/core/lvgl/src/display/lv_display.c \
+    lvglpp/core/lvgl/src/draw/lv_draw.c \
+    lvglpp/core/lvgl/src/draw/lv_draw_arc.c \
+    lvglpp/core/lvgl/src/draw/lv_draw_buf.c \
+    lvglpp/core/lvgl/src/draw/lv_draw_image.c \
+    lvglpp/core/lvgl/src/draw/lv_draw_label.c \
+    lvglpp/core/lvgl/src/draw/lv_draw_line.c \
+    lvglpp/core/lvgl/src/draw/lv_draw_mask.c \
+    lvglpp/core/lvgl/src/draw/lv_draw_rect.c \
+    lvglpp/core/lvgl/src/draw/lv_draw_triangle.c \
+    lvglpp/core/lvgl/src/draw/lv_draw_vector.c \
+    lvglpp/core/lvgl/src/draw/lv_image_decoder.c \
+    lvglpp/core/lvgl/src/draw/nxp/pxp/lv_draw_buf_pxp.c \
+    lvglpp/core/lvgl/src/draw/nxp/pxp/lv_draw_pxp.c \
+    lvglpp/core/lvgl/src/draw/nxp/pxp/lv_draw_pxp_fill.c \
+    lvglpp/core/lvgl/src/draw/nxp/pxp/lv_draw_pxp_img.c \
+    lvglpp/core/lvgl/src/draw/nxp/pxp/lv_draw_pxp_layer.c \
+    lvglpp/core/lvgl/src/draw/nxp/pxp/lv_pxp_cfg.c \
+    lvglpp/core/lvgl/src/draw/nxp/pxp/lv_pxp_osa.c \
+    lvglpp/core/lvgl/src/draw/nxp/pxp/lv_pxp_utils.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_buf_vglite.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_arc.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_border.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_fill.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_img.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_label.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_layer.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_line.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_draw_vglite_triangle.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_vglite_buf.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_vglite_matrix.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_vglite_path.c \
+    lvglpp/core/lvgl/src/draw/nxp/vglite/lv_vglite_utils.c \
+    lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d.c \
+    lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_arc.c \
+    lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_border.c \
+    lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_fill.c \
+    lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_image.c \
+    lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_label.c \
+    lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_line.c \
+    lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_mask_rectangle.c \
+    lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_triangle.c \
+    lvglpp/core/lvgl/src/draw/renesas/dave2d/lv_draw_dave2d_utils.c \
+    lvglpp/core/lvgl/src/draw/sdl/lv_draw_sdl.c \
+    lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend.c \
+    lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c \
+    lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888.c \
+    lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_i1.c \
+    lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_l8.c \
+    lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.c \
+    lvglpp/core/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb888.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_arc.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_border.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_box_shadow.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_fill.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_gradient.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_img.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_letter.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_line.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_mask.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_mask_rect.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_transform.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_triangle.c \
+    lvglpp/core/lvgl/src/draw/sw/lv_draw_sw_vector.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_buf_vg_lite.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_arc.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_border.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_box_shadow.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_fill.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_img.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_label.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_layer.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_line.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_mask_rect.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_triangle.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_draw_vg_lite_vector.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_decoder.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_grad.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_math.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_path.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_pending.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_stroke.c \
+    lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_utils.c \
+    lvglpp/core/lvgl/src/drivers/display/drm/lv_linux_drm.c \
+    lvglpp/core/lvgl/src/drivers/display/fb/lv_linux_fbdev.c \
+#    lvglpp/core/lvgl/src/drivers/display/lcd/lv_lcd_generic_mipi.c \
+    lvglpp/core/lvgl/src/drivers/display/renesas_glcdc/lv_renesas_glcdc.c \
+    lvglpp/core/lvgl/src/drivers/evdev/lv_evdev.c \
+    lvglpp/core/lvgl/src/drivers/glfw/lv_glfw_window.c \
+    lvglpp/core/lvgl/src/drivers/glfw/lv_opengles_debug.c \
+    lvglpp/core/lvgl/src/drivers/glfw/lv_opengles_driver.c \
+    lvglpp/core/lvgl/src/drivers/glfw/lv_opengles_texture.c \
+    lvglpp/core/lvgl/src/drivers/libinput/lv_libinput.c \
+    lvglpp/core/lvgl/src/drivers/libinput/lv_xkb.c \
+    lvglpp/core/lvgl/src/drivers/qnx/lv_qnx.c \
+    lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_keyboard.c \
+    lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_mouse.c \
+    lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_mousewheel.c \
+    lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_window.c \
+    lvglpp/core/lvgl/src/drivers/wayland/lv_wayland.c \
+    lvglpp/core/lvgl/src/drivers/wayland/lv_wayland_smm.c \
+    lvglpp/core/lvgl/src/drivers/windows/lv_windows_context.c \
+    lvglpp/core/lvgl/src/drivers/windows/lv_windows_display.c \
+#    lvglpp/core/lvgl/src/drivers/windows/lv_windows_input.c \
+    lvglpp/core/lvgl/src/drivers/x11/lv_x11_display.c \
+    lvglpp/core/lvgl/src/drivers/x11/lv_x11_input.c \
+    lvglpp/core/lvgl/src/font/lv_binfont_loader.c \
+    lvglpp/core/lvgl/src/font/lv_font.c \
+    lvglpp/core/lvgl/src/font/lv_font_dejavu_16_persian_hebrew.c \
+    lvglpp/core/lvgl/src/font/lv_font_fmt_txt.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_10.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_12.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_14.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_16.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_18.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_20.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_22.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_24.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_26.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_28.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_28_compressed.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_30.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_32.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_34.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_36.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_38.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_40.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_42.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_44.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_46.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_48.c \
+    lvglpp/core/lvgl/src/font/lv_font_montserrat_8.c \
+    lvglpp/core/lvgl/src/font/lv_font_simsun_14_cjk.c \
+    lvglpp/core/lvgl/src/font/lv_font_simsun_16_cjk.c \
+    lvglpp/core/lvgl/src/font/lv_font_unscii_16.c \
+    lvglpp/core/lvgl/src/font/lv_font_unscii_8.c \
+    lvglpp/core/lvgl/src/indev/lv_indev.c \
+    lvglpp/core/lvgl/src/indev/lv_indev_scroll.c \
+    lvglpp/core/lvgl/src/layouts/flex/lv_flex.c \
+    lvglpp/core/lvgl/src/layouts/grid/lv_grid.c \
+    lvglpp/core/lvgl/src/layouts/lv_layout.c \
+    lvglpp/core/lvgl/src/libs/barcode/code128.c \
+    lvglpp/core/lvgl/src/libs/barcode/lv_barcode.c \
+    lvglpp/core/lvgl/src/libs/bin_decoder/lv_bin_decoder.c \
+    lvglpp/core/lvgl/src/libs/bmp/lv_bmp.c \
+    lvglpp/core/lvgl/src/libs/ffmpeg/lv_ffmpeg.c \
+    lvglpp/core/lvgl/src/libs/freetype/lv_freetype.c \
+    lvglpp/core/lvgl/src/libs/freetype/lv_freetype_glyph.c \
+    lvglpp/core/lvgl/src/libs/freetype/lv_freetype_image.c \
+    lvglpp/core/lvgl/src/libs/freetype/lv_freetype_outline.c \
+    lvglpp/core/lvgl/src/libs/freetype/lv_ftsystem.c \
+    lvglpp/core/lvgl/src/libs/gif/gifdec.c \
+    lvglpp/core/lvgl/src/libs/gif/lv_gif.c \
+    lvglpp/core/lvgl/src/libs/libjpeg_turbo/lv_libjpeg_turbo.c \
+    lvglpp/core/lvgl/src/libs/libpng/lv_libpng.c \
+    lvglpp/core/lvgl/src/libs/lodepng/lodepng.c \
+    lvglpp/core/lvgl/src/libs/lodepng/lv_lodepng.c \
+    lvglpp/core/lvgl/src/libs/lz4/lz4.c \
+    lvglpp/core/lvgl/src/libs/rle/lv_rle.c \
+    lvglpp/core/lvgl/src/libs/rlottie/lv_rlottie.c \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgAccessor.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgAnimation.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgCanvas.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgCapi.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgCompressor.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgFill.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgGlCanvas.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgInitializer.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgLines.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgLoader.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgLottieAnimation.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgLottieBuilder.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgLottieExpressions.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgLottieInterpolator.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgLottieLoader.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgLottieModel.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgLottieParser.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgLottieParserHandler.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgMath.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgPaint.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgPicture.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgRawLoader.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgRender.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSaver.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgScene.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgShape.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgStr.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSvgCssStyle.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSvgLoader.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSvgPath.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSvgSceneBuilder.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSvgUtil.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSwCanvas.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSwFill.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSwImage.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSwMath.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSwMemPool.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSwRaster.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSwRenderer.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSwRle.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSwShape.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgSwStroke.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgTaskScheduler.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgText.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgWgCanvas.cpp \
+    lvglpp/core/lvgl/src/libs/thorvg/tvgXmlParser.cpp \
+    lvglpp/core/lvgl/src/lv_init.c \
+    lvglpp/core/lvgl/src/misc/cache/lv_cache.c \
+    lvglpp/core/lvgl/src/misc/cache/lv_cache_entry.c \
+    lvglpp/core/lvgl/src/misc/cache/lv_cache_lru_rb.c \
+    lvglpp/core/lvgl/src/misc/cache/lv_image_cache.c \
+    lvglpp/core/lvgl/src/misc/cache/lv_image_header_cache.c \
+    lvglpp/core/lvgl/src/misc/lv_anim.c \
+    lvglpp/core/lvgl/src/misc/lv_anim_timeline.c \
+    lvglpp/core/lvgl/src/misc/lv_area.c \
+    lvglpp/core/lvgl/src/misc/lv_array.c \
+    lvglpp/core/lvgl/src/misc/lv_async.c \
+    lvglpp/core/lvgl/src/misc/lv_bidi.c \
+    lvglpp/core/lvgl/src/misc/lv_color.c \
+    lvglpp/core/lvgl/src/misc/lv_color_op.c \
+    lvglpp/core/lvgl/src/misc/lv_event.c \
+    lvglpp/core/lvgl/src/misc/lv_fs.c \
+    lvglpp/core/lvgl/src/misc/lv_iter.c \
+    lvglpp/core/lvgl/src/misc/lv_ll.c \
+    lvglpp/core/lvgl/src/misc/lv_log.c \
+    lvglpp/core/lvgl/src/misc/lv_lru.c \
+    lvglpp/core/lvgl/src/misc/lv_math.c \
+    lvglpp/core/lvgl/src/misc/lv_matrix.c \
+    lvglpp/core/lvgl/src/misc/lv_palette.c \
+    lvglpp/core/lvgl/src/misc/lv_profiler_builtin.c \
+    lvglpp/core/lvgl/src/misc/lv_rb.c \
+    lvglpp/core/lvgl/src/misc/lv_style.c \
+    lvglpp/core/lvgl/src/misc/lv_style_gen.c \
+    lvglpp/core/lvgl/src/misc/lv_templ.c \
+    lvglpp/core/lvgl/src/misc/lv_text.c \
+    lvglpp/core/lvgl/src/misc/lv_text_ap.c \
+    lvglpp/core/lvgl/src/misc/lv_timer.c \
+    lvglpp/core/lvgl/src/misc/lv_utils.c \
+    lvglpp/core/lvgl/src/osal/lv_mqx.c \
+    lvglpp/core/lvgl/src/osal/lv_os.c \
+    lvglpp/core/lvgl/src/osal/lv_os_none.c \
+    lvglpp/core/lvgl/src/osal/lv_pthread.c \
+    lvglpp/core/lvgl/src/osal/lv_rtthread.c \
+    lvglpp/core/lvgl/src/osal/lv_windows.c \
+    lvglpp/core/lvgl/src/others/file_explorer/lv_file_explorer.c \
+    lvglpp/core/lvgl/src/others/font_manager/lv_font_manager.c \
+    lvglpp/core/lvgl/src/others/font_manager/lv_font_manager_recycle.c \
+    lvglpp/core/lvgl/src/others/font_manager/lv_font_manager_utils.c \
+    lvglpp/core/lvgl/src/others/fragment/lv_fragment.c \
+    lvglpp/core/lvgl/src/others/fragment/lv_fragment_manager.c \
+    lvglpp/core/lvgl/src/others/gridnav/lv_gridnav.c \
+    lvglpp/core/lvgl/src/others/ime/lv_ime_pinyin.c \
+    lvglpp/core/lvgl/src/others/imgfont/lv_imgfont.c \
+    lvglpp/core/lvgl/src/others/monkey/lv_monkey.c \
+    lvglpp/core/lvgl/src/others/observer/lv_observer.c \
+    lvglpp/core/lvgl/src/others/snapshot/lv_snapshot.c \
+    lvglpp/core/lvgl/src/others/sysmon/lv_sysmon.c \
+    lvglpp/core/lvgl/src/others/vg_lite_tvg/vg_lite_matrix.c \
+    lvglpp/core/lvgl/src/others/vg_lite_tvg/vg_lite_tvg.cpp \
+    lvglpp/core/lvgl/src/stdlib/builtin/lv_mem_core_builtin.c \
+    lvglpp/core/lvgl/src/stdlib/builtin/lv_sprintf_builtin.c \
+    lvglpp/core/lvgl/src/stdlib/builtin/lv_string_builtin.c \
+    lvglpp/core/lvgl/src/stdlib/builtin/lv_tlsf.c \
+    lvglpp/core/lvgl/src/stdlib/clib/lv_mem_core_clib.c \
+    lvglpp/core/lvgl/src/stdlib/clib/lv_sprintf_clib.c \
+    lvglpp/core/lvgl/src/stdlib/clib/lv_string_clib.c \
+    lvglpp/core/lvgl/src/stdlib/lv_mem.c \
+    lvglpp/core/lvgl/src/themes/default/lv_theme_default.c \
+    lvglpp/core/lvgl/src/themes/lv_theme.c \
+    lvglpp/core/lvgl/src/themes/mono/lv_theme_mono.c \
+    lvglpp/core/lvgl/src/themes/simple/lv_theme_simple.c \
+    lvglpp/core/lvgl/src/tick/lv_tick.c \
+    lvglpp/core/lvgl/src/widgets/animimage/lv_animimage.c \
+    lvglpp/core/lvgl/src/widgets/arc/lv_arc.c \
+    lvglpp/core/lvgl/src/widgets/bar/lv_bar.c \
+    lvglpp/core/lvgl/src/widgets/button/lv_button.c \
+    lvglpp/core/lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.c \
+    lvglpp/core/lvgl/src/widgets/calendar/lv_calendar.c \
+    lvglpp/core/lvgl/src/widgets/calendar/lv_calendar_chinese.c \
+    lvglpp/core/lvgl/src/widgets/calendar/lv_calendar_header_arrow.c \
+    lvglpp/core/lvgl/src/widgets/calendar/lv_calendar_header_dropdown.c \
+    lvglpp/core/lvgl/src/widgets/canvas/lv_canvas.c \
+    lvglpp/core/lvgl/src/widgets/chart/lv_chart.c \
+    lvglpp/core/lvgl/src/widgets/checkbox/lv_checkbox.c \
+    lvglpp/core/lvgl/src/widgets/dropdown/lv_dropdown.c \
+    lvglpp/core/lvgl/src/widgets/image/lv_image.c \
+    lvglpp/core/lvgl/src/widgets/imagebutton/lv_imagebutton.c \
+    lvglpp/core/lvgl/src/widgets/keyboard/lv_keyboard.c \
+    lvglpp/core/lvgl/src/widgets/label/lv_label.c \
+    lvglpp/core/lvgl/src/widgets/led/lv_led.c \
+    lvglpp/core/lvgl/src/widgets/line/lv_line.c \
+    lvglpp/core/lvgl/src/widgets/list/lv_list.c \
+    lvglpp/core/lvgl/src/widgets/lottie/lv_lottie.c \
+    lvglpp/core/lvgl/src/widgets/menu/lv_menu.c \
+    lvglpp/core/lvgl/src/widgets/msgbox/lv_msgbox.c \
+    lvglpp/core/lvgl/src/widgets/objx_templ/lv_objx_templ.c \
+    lvglpp/core/lvgl/src/widgets/property/lv_dropdown_properties.c \
+    lvglpp/core/lvgl/src/widgets/property/lv_image_properties.c \
+    lvglpp/core/lvgl/src/widgets/property/lv_keyboard_properties.c \
+    lvglpp/core/lvgl/src/widgets/property/lv_label_properties.c \
+    lvglpp/core/lvgl/src/widgets/property/lv_obj_properties.c \
+    lvglpp/core/lvgl/src/widgets/property/lv_roller_properties.c \
+    lvglpp/core/lvgl/src/widgets/property/lv_style_properties.c \
+    lvglpp/core/lvgl/src/widgets/property/lv_textarea_properties.c \
+    lvglpp/core/lvgl/src/widgets/roller/lv_roller.c \
+    lvglpp/core/lvgl/src/widgets/scale/lv_scale.c \
+    lvglpp/core/lvgl/src/widgets/slider/lv_slider.c \
+    lvglpp/core/lvgl/src/widgets/span/lv_span.c \
+    lvglpp/core/lvgl/src/widgets/spinbox/lv_spinbox.c \
+    lvglpp/core/lvgl/src/widgets/spinner/lv_spinner.c \
+    lvglpp/core/lvgl/src/widgets/switch/lv_switch.c \
+    lvglpp/core/lvgl/src/widgets/table/lv_table.c \
+    lvglpp/core/lvgl/src/widgets/tabview/lv_tabview.c \
+    lvglpp/core/lvgl/src/widgets/textarea/lv_textarea.c \
+    lvglpp/core/lvgl/src/widgets/tileview/lv_tileview.c \
+    lvglpp/core/lvgl/src/widgets/win/lv_win.c \
+    lvglpp/lvstyle.cpp \
+    lvglpp/widgets/lvbar.cpp \
+    lvglpp/widgets/lvbaseobject.cpp \
+    lvglpp/widgets/lvbutton.cpp \
+    lvglpp/widgets/lvbuttonmaxtrix.cpp \
+    lvglpp/widgets/lvcuractivescreen.cpp \
+    lvglpp/widgets/lvdropdownlist.cpp \
+    lvglpp/widgets/lvimage.cpp \
+    lvglpp/widgets/lvlabel.cpp \
+    lvglpp/widgets/lvline.cpp \
+    lvglpp/widgets/lvlist.cpp \
+    lvglpp/widgets/lvmessagebox.cpp \
+    lvglpp/widgets/lvroller.cpp \
+    lvglpp/widgets/lvscale.cpp \
+    lvglpp/widgets/lvslider.cpp \
+    lvglpp/widgets/lvspinbox.cpp \
+    lvglpp/widgets/lvtabview.cpp \
+    lvglpp/widgets/lvwindow.cpp \
+    graphic.cpp \
+    main.cpp \
+    resource/bg_RGB565.c
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -411,11 +378,10 @@ DISTFILES += \
     lvglpp/core/lvgl/src/others/fragment/README.md
 
 HEADERS += \
-    graphic.h \
     lvglpp/core/lv_conf.h \
     lvglpp/core/lvgl/lv_conf_template.h \
-    lvglpp/core/lvgl/lv_version.h \
-    lvglpp/core/lvgl/lv_version.h.in \
+#    lvglpp/core/lvgl/lv_version.h \
+#    lvglpp/core/lvgl/lv_version.h.in \
     lvglpp/core/lvgl/lvgl.h \
     lvglpp/core/lvgl/src/core/lv_global.h \
     lvglpp/core/lvgl/src/core/lv_group.h \
@@ -505,13 +471,8 @@ HEADERS += \
     lvglpp/core/lvgl/src/draw/vg_lite/lv_vg_lite_utils.h \
     lvglpp/core/lvgl/src/drivers/display/drm/lv_linux_drm.h \
     lvglpp/core/lvgl/src/drivers/display/fb/lv_linux_fbdev.h \
-    lvglpp/core/lvgl/src/drivers/display/ili9341/lv_ili9341.h \
-    lvglpp/core/lvgl/src/drivers/display/lcd/lv_lcd_generic_mipi.h \
+#    lvglpp/core/lvgl/src/drivers/display/lcd/lv_lcd_generic_mipi.h \
     lvglpp/core/lvgl/src/drivers/display/renesas_glcdc/lv_renesas_glcdc.h \
-    lvglpp/core/lvgl/src/drivers/display/st7735/lv_st7735.h \
-    lvglpp/core/lvgl/src/drivers/display/st7789/lv_st7789.h \
-    lvglpp/core/lvgl/src/drivers/display/st7796/lv_st7796.h \
-    lvglpp/core/lvgl/src/drivers/display/tft_espi/lv_tft_espi.h \
     lvglpp/core/lvgl/src/drivers/evdev/lv_evdev.h \
     lvglpp/core/lvgl/src/drivers/glfw/lv_glfw_window.h \
     lvglpp/core/lvgl/src/drivers/glfw/lv_glfw_window_private.h \
@@ -523,14 +484,6 @@ HEADERS += \
     lvglpp/core/lvgl/src/drivers/libinput/lv_xkb.h \
     lvglpp/core/lvgl/src/drivers/libinput/lv_xkb_private.h \
     lvglpp/core/lvgl/src/drivers/lv_drivers.h \
-    lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_cache.h \
-    lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_entry.h \
-    lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_fbdev.h \
-    lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_image_cache.h \
-    lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_lcd.h \
-    lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_libuv.h \
-    lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_profiler.h \
-    lvglpp/core/lvgl/src/drivers/nuttx/lv_nuttx_touchscreen.h \
     lvglpp/core/lvgl/src/drivers/qnx/lv_qnx.h \
     lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_keyboard.h \
     lvglpp/core/lvgl/src/drivers/sdl/lv_sdl_mouse.h \
@@ -541,8 +494,8 @@ HEADERS += \
     lvglpp/core/lvgl/src/drivers/wayland/lv_wayland_smm.h \
     lvglpp/core/lvgl/src/drivers/windows/lv_windows_context.h \
     lvglpp/core/lvgl/src/drivers/windows/lv_windows_display.h \
-    lvglpp/core/lvgl/src/drivers/windows/lv_windows_input.h \
-    lvglpp/core/lvgl/src/drivers/windows/lv_windows_input_private.h \
+#    lvglpp/core/lvgl/src/drivers/windows/lv_windows_input.h \
+#    lvglpp/core/lvgl/src/drivers/windows/lv_windows_input_private.h \
     lvglpp/core/lvgl/src/drivers/x11/lv_x11.h \
     lvglpp/core/lvgl/src/font/lv_binfont_loader.h \
     lvglpp/core/lvgl/src/font/lv_font.h \
@@ -567,7 +520,6 @@ HEADERS += \
     lvglpp/core/lvgl/src/libs/freetype/ftoption.h \
     lvglpp/core/lvgl/src/libs/freetype/lv_freetype.h \
     lvglpp/core/lvgl/src/libs/freetype/lv_freetype_private.h \
-    lvglpp/core/lvgl/src/libs/fsdrv/lv_fsdrv.h \
     lvglpp/core/lvgl/src/libs/gif/gifdec.h \
     lvglpp/core/lvgl/src/libs/gif/gifdec_mve.h \
     lvglpp/core/lvgl/src/libs/gif/lv_gif.h \
@@ -577,9 +529,6 @@ HEADERS += \
     lvglpp/core/lvgl/src/libs/lodepng/lodepng.h \
     lvglpp/core/lvgl/src/libs/lodepng/lv_lodepng.h \
     lvglpp/core/lvgl/src/libs/lz4/lz4.h \
-    lvglpp/core/lvgl/src/libs/qrcode/lv_qrcode.h \
-    lvglpp/core/lvgl/src/libs/qrcode/lv_qrcode_private.h \
-    lvglpp/core/lvgl/src/libs/qrcode/qrcodegen.h \
     lvglpp/core/lvgl/src/libs/rle/lv_rle.h \
     lvglpp/core/lvgl/src/libs/rlottie/lv_rlottie.h \
     lvglpp/core/lvgl/src/libs/rlottie/lv_rlottie_private.h \
@@ -671,15 +620,8 @@ HEADERS += \
     lvglpp/core/lvgl/src/libs/thorvg/tvgTaskScheduler.h \
     lvglpp/core/lvgl/src/libs/thorvg/tvgText.h \
     lvglpp/core/lvgl/src/libs/thorvg/tvgXmlParser.h \
-    lvglpp/core/lvgl/src/libs/tiny_ttf/lv_tiny_ttf.h \
     lvglpp/core/lvgl/src/libs/tiny_ttf/stb_rect_pack.h \
     lvglpp/core/lvgl/src/libs/tiny_ttf/stb_truetype_htcw.h \
-    lvglpp/core/lvgl/src/libs/tjpgd/lv_tjpgd.h \
-    lvglpp/core/lvgl/src/libs/tjpgd/tjpgd.h \
-    lvglpp/core/lvgl/src/libs/tjpgd/tjpgdcnf.h \
-    lvglpp/core/lvgl/src/lv_api_map_v8.h \
-    lvglpp/core/lvgl/src/lv_api_map_v9_0.h \
-    lvglpp/core/lvgl/src/lv_api_map_v9_1.h \
     lvglpp/core/lvgl/src/lv_conf_internal.h \
     lvglpp/core/lvgl/src/lv_conf_kconfig.h \
     lvglpp/core/lvgl/src/lv_init.h \
@@ -732,8 +674,6 @@ HEADERS += \
     lvglpp/core/lvgl/src/misc/lv_timer_private.h \
     lvglpp/core/lvgl/src/misc/lv_types.h \
     lvglpp/core/lvgl/src/misc/lv_utils.h \
-    lvglpp/core/lvgl/src/osal/lv_cmsis_rtos2.h \
-    lvglpp/core/lvgl/src/osal/lv_freertos.h \
     lvglpp/core/lvgl/src/osal/lv_mqx.h \
     lvglpp/core/lvgl/src/osal/lv_os.h \
     lvglpp/core/lvgl/src/osal/lv_os_none.h \
@@ -760,8 +700,8 @@ HEADERS += \
     lvglpp/core/lvgl/src/others/sysmon/lv_sysmon.h \
     lvglpp/core/lvgl/src/others/sysmon/lv_sysmon_private.h \
     lvglpp/core/lvgl/src/others/vg_lite_tvg/vg_lite.h \
-    lvglpp/core/lvgl/src/stdlib/builtin/lv_tlsf.h \
-    lvglpp/core/lvgl/src/stdlib/builtin/lv_tlsf_private.h \
+#    lvglpp/core/lvgl/src/stdlib/builtin/lv_tlsf.h \
+#    lvglpp/core/lvgl/src/stdlib/builtin/lv_tlsf_private.h \
     lvglpp/core/lvgl/src/stdlib/lv_mem.h \
     lvglpp/core/lvgl/src/stdlib/lv_mem_private.h \
     lvglpp/core/lvgl/src/stdlib/lv_sprintf.h \
@@ -842,13 +782,13 @@ HEADERS += \
     lvglpp/core/lvgl/src/widgets/tileview/lv_tileview_private.h \
     lvglpp/core/lvgl/src/widgets/win/lv_win.h \
     lvglpp/core/lvgl/src/widgets/win/lv_win_private.h \
+    lvglpp/lvglpptype.h \
     lvglpp/lvstyle.h \
     lvglpp/widgets/lvbar.h \
     lvglpp/widgets/lvbaseobject.h \
     lvglpp/widgets/lvbutton.h \
     lvglpp/widgets/lvbuttonmaxtrix.h \
     lvglpp/widgets/lvcuractivescreen.h \
-    lvglpp/lvglpptype.h \
     lvglpp/widgets/lvdropdownlist.h \
     lvglpp/widgets/lvimage.h \
     lvglpp/widgets/lvlabel.h \
@@ -860,4 +800,5 @@ HEADERS += \
     lvglpp/widgets/lvslider.h \
     lvglpp/widgets/lvspinbox.h \
     lvglpp/widgets/lvtabview.h \
-    lvglpp/widgets/lvwindow.h
+    lvglpp/widgets/lvwindow.h \
+    graphic.h

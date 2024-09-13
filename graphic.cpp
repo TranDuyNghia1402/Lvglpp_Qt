@@ -24,8 +24,8 @@ Graphic::Graphic()
 
     halInit();
 
-//    drawSomething();
-    csdspSimulator();
+    drawSomething();
+//    csdspSimulator();
 }
 
 void Graphic::halInit()
