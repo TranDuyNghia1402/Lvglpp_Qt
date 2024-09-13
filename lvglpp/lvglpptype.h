@@ -38,6 +38,7 @@ typedef lv_btnmatrix_ctrl_t     LvBtnMatrixCtrl;
 typedef lv_bar_mode_t           LvBarMode;
 typedef lv_bar_orientation_t    LvBarOrientation;
 typedef lv_roller_mode_t        LvRollerMode;
+typedef lv_slider_mode_t        LvSliderMode;
 
 enum class ScrollBarMode
 {
