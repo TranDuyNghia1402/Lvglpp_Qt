@@ -17,3 +17,13 @@ void LvMessageBox::create()
     else
         mLvObj = lv_msgbox_create(lv_screen_active());
 }
+
+void LvMessageBox::addTitle(const char *title)
+{
+    if (!mLvObj || !isCreated)
+    {
+        qDebug() << "[Warning] MessageBox was not created!";
+        return;
+    }
+    lv_msgbox_add_title(mLvObj, title);
+}
