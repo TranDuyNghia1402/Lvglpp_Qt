@@ -17,20 +17,30 @@ public:
     /**
      * @brief addTitle: add title to the message box. It also creates a header for the title.
      * @param title
+     * @return
      */
-    void addTitle(const char *title);
+    LvBaseObject *addTitle(const char *title);
 
     /**
      * @brief addHeaderButton: add a button to the header of to the message box. It also creates a header.
      * @param icon
+     * @return
      */
-    void addHeaderButton(const void *icon);
+    LvBaseObject *addHeaderButton(const void *icon);
 
     /**
      * @brief addText: add a button to the header of to the message box. It also creates a header.
      * @param text
+     * @return
      */
-    void addText(const char *text);
+    LvBaseObject *addText(const char *text);
+
+    /**
+     * @brief addFooterButton
+     * @param text
+     * @return
+     */
+    LvBaseObject *addFooterButton(const char *text);
 
 };
 #endif // LVMESSAGEBOX_H
