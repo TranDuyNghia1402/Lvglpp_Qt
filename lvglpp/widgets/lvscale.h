@@ -64,6 +64,18 @@ public:
      */
     void setMajorTickEvery(const uint32_t &majorTickEvery);
 
+        /**
+     * @brief setMinorTickLength: set minor tick length
+     * @param len
+     */
+    void setMinorTickLength(const int32_t &len);
+
+    /**
+     * @brief setMajorTickLength: set major tick length
+     * @param len
+     */
+    void setMajorTickLength(const int32_t &len);
+
     /**
      * @brief setAngleRange: set properties specific to round scale
      * @param angleRange
