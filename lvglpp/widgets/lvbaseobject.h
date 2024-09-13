@@ -359,6 +359,50 @@ public:
     void setPadAll(const int32_t &value, const LvSelector &selector = LV_PART_MAIN);
 
     /**
+     * @brief getScrollX: get current X scroll position. 
+     * @return
+     */
+    int32_t getScrollX() const;
+
+    /**
+     * @brief getScrollY: get current Y scroll position.
+     * @return
+     */
+    int32_t getScrollY() const;
+
+    /**
+    * @brief getScrollTop: eturn the height of the area above the object.
+    * That is the number of pixels the object can be scrolled down. 
+    * Normally positive but can be negative when scrolled inside.    
+    * @return
+    */
+    int32_t getScrollTop() const;
+
+    /** 
+    * @brief getScrollBottom: return the height of the area below the object. 
+    * That is the number of pixels the object can be scrolled down. 
+    * Normally positive but can be negative when scrolled inside.
+    * @return
+    */
+    int32_t getScrollBottom() const;
+
+    /**
+     * @brief getScollLeft: return the width of the area on the left the object.
+     * That is the number of pixels the object can be scrolled down.
+     * Normally positive but can be negative when scrolled inside.
+     * @return
+     */
+    int32_t getScrollLeft() const;
+
+    /**
+     * @brief getScrollRight: return the width of the area on the right the object.
+     * That is the number of pixels the object can be scrolled down.
+     * Normally positive but can be negative when scrolled inside.
+     * @return
+     */
+    int32_t getScrollRight() const;
+
+    /**
      * @brief getLvObject: return base object of lvgl
      * @warning do not call this function outside this class
      * @return mLvObject

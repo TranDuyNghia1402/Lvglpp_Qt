@@ -197,7 +197,7 @@ void LvObjectStyle::reset()
     lv_style_reset(&mStyle);
 }
 
-LvStyle *LvObjectStyle::getStyle() const
+const LvStyle *LvObjectStyle::getStyle() const
 {
     return &mStyle;
 }
