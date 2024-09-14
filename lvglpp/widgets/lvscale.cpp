@@ -125,7 +125,7 @@ void LvScale::setMajorTickWidth(const int32_t &width)
         qDebug() << "[Warning] scale was not created!";
         return;
     }
-    lv_obj_set_style_line_width(mLvObj, len, LV_PART_INDICATOR);
+    lv_obj_set_style_line_width(mLvObj, width, LV_PART_INDICATOR);
 }
 
 void LvScale::setMinorTickWidth(const int32_t &width)
@@ -135,7 +135,7 @@ void LvScale::setMinorTickWidth(const int32_t &width)
         qDebug() << "[Warning] scale was not created!";
         return;
     }
-    lv_obj_set_style_line_width(mLvObj, len, LV_PART_ITEMS);
+    lv_obj_set_style_line_width(mLvObj, width, LV_PART_ITEMS);
 }
 
 void LvScale::setAngleRange(const uint32_t &angleRange)
