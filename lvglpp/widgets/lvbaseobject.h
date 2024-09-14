@@ -380,7 +380,7 @@ public:
 
     /** 
     * @brief getScrollBottom: return the height of the area below the object. 
-    * That is the number of pixels the object can be scrolled down. 
+    * That is the number of pixels the object can be scrolled down.
     * Normally positive but can be negative when scrolled inside.
     * @return
     */

@@ -77,6 +77,18 @@ public:
     void setMajorTickLength(const int32_t &len);
 
     /**
+     * @brief setMajorTickWidth: set major tick width
+     * @param width
+     */
+    void setMajorTickWidth(const int32_t &width);
+
+    /**
+     * @brief setMinorTickWidth: set minor tick width
+     * @param width
+     */
+    void setMinorTickWidth(const int32_t &width);
+
+    /**
      * @brief setAngleRange: set properties specific to round scale
      * @param angleRange
      */
